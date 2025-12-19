@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/index_styles.css">
+</head>
+<body th:attr="data-user-id=${userId}">
+    <input type="hidden" id="current-user-id" th:value="${userId}" />
+    <div class="overlay" id="overlay"></div>
+    <div class="assistant-image" id="assistantImage">i</div>
+    <div class="popup-box" id="popupBox">
+        <div class="popup-content" id="tip1">
+            <h3>Welcome to your Learning Dashboard! 🎓</h3>
+            <p>Here you can explore and select courses tailored to your learning preferences.</p>
+            <button onclick="showNextTip(2)" class="next-tip-btn">Next</button>
+        </div>
+        <div class="popup-content" id="tip2">
+            <h3>Course Selection 📚</h3>
+            <p>You can select up to 3 courses that interest you. Choose wisely based on your goals!</p>
+            <button onclick="showNextTip(3)" class="next-tip-btn">Next</button>
+        </div>
+        <div class="popup-content" id="tip3">
+            <h3>Ready to Start? 🚀</h3>
+            <p>Click on the courses to select them and hit 'Continue' when you're ready to begin your learning journey!</p>
+            <button onclick="closePopupAndMinimize()" class="close-tip-btn">Got it!</button>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Learn</div>
+            <div class="nav-actions">
+                <a th:href="@{/}" class="nav-link">Home</a>
+                <a th:href="@{/about}" class="nav-link">About</a>
+                <a th:href="@{/contact}" class="nav-link">Contact</a>
+                <a th:href="@{/logout}" class="logout-btn" style="color: white;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h1>Welcome to Learn</h1>
+            <p>Discover personalized course recommendations based on your assessment results.</p>
+        </div>
+        
+        <div class="course-selection-container">
+            <div id="courseGrid" class="course-grid">
+                <!-- Course cards will be dynamically loaded here -->
+            </div>
+            
+            <!-- Continue Button -->
+            <button id="continueWithSelectedCourses" class="continue-btn">
+                Continue with Selected Courses
+            </button>
+        </div>
+
+        <div class="selected-courses">
+            <h3>Selected Courses</h3>
+            <div id="selectedCoursesList">
+                no courses selected yet
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let selectedCourses = [];
+        const maxSelectedCourses = 3;
+        const continueButton = document.getElementById('continueWithSelectedCourses');
+
+        async function loadCourses() {
+            const courseGrid = document.getElementById('courseGrid');
+            try {
+                const userId = document.getElementById('current-user-id').value;
+                console.log('Loading courses for user:', userId);
+                
+                // Add timestamp to prevent caching
+                const timestamp = new Date().getTime();
+                const url = `/api/courses/suggestions/${userId}?t=${timestamp}`;
+                console.log('Fetching from URL:', url);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Full response data:', data);
+                console.log('Recommendations:', data.recommendations);
+                
+                // Debugging: Check if recommendations exist and log their details
+                if (!data.recommendations || data.recommendations.length === 0) {
+                    console.error('No recommendations found in the response');
+                    console.error('Full response:', JSON.stringify(data, null, 2));
+                    courseGrid.innerHTML = `
+                        <div class="no-courses-message">
+                            <p>No course recommendations available for this user.</p>
+                            <button onclick="window.location.reload()">Generate Recommended Courses</button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const recommendations = data.recommendations;
+
+                courseGrid.innerHTML = '';  // Clear existing content
+
+                recommendations.forEach(course => {
+                    const courseCard = document.createElement('div');
+                    courseCard.className = 'course-card';
+                    courseCard.innerHTML = `
+                        <div class="course-content">
+                            <h3>
+                                <span class="course-id">[ID: ${course.id}]</span> 
+                                ${course.title}
+                            </h3>
+                            <p>${course.description}</p>
+                            <div class="confidence-score">
+                                <div class="confidence-label">
+                                    <span>Confidence Score</span>
+                                    <span class="confidence-value">${course.confidence_score}%</span>
+                                </div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width: ${course.confidence_score}%"></div>
+                                </div>
+                            </div>
+                            <div class="course-actions">
+                                <button onclick="selectCourse('${course.id}', '${course.title.replace(/'/g, "\\'")}')"
+                                        class="select-btn"
+                                        ${selectedCourses.length >= maxSelectedCourses ? 'disabled' : ''}>
+                                    Select Course
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    courseGrid.appendChild(courseCard);
+                });
+            } catch (error) {
+                console.error('Error loading courses:', error);
+                courseGrid.innerHTML = `
+                    <div class="error-message">
+                        <p>Courses Currently Getting Generated. reload the page or try to log out and log back in.</p>
+                        <button onclick="loadCourses()">Reload</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Load courses when the page loads
+        document.addEventListener('DOMContentLoaded', loadCourses);
+
+        function selectCourse(courseId, courseTitle) {
+            // Check if course is already selected
+            if (selectedCourses.some(course => course.id === courseId)) {
+                // Remove course if already selected
+                selectedCourses = selectedCourses.filter(course => course.id !== courseId);
+                document.querySelector(`.select-btn[onclick*="${courseId}"]`).textContent = 'Select Course';
+            } else {
+                // Add course if not at max limit
+                if (selectedCourses.length < maxSelectedCourses) {
+                    selectedCourses.push({ id: courseId, title: courseTitle });
+                    document.querySelector(`.select-btn[onclick*="${courseId}"]`).textContent = 'Deselect Course';
+                } else {
+                    alert('You can only select up to 3 courses.');
+                    return;
+                }
+            }
+
+            // Update selected courses list
+            updateSelectedCoursesList();
+
+            // Manage continue button state
+            manageContinueButton();
+        }
+
+        function removeCourse(index) {
+            const removedCourse = selectedCourses[index];
+            selectedCourses.splice(index, 1);
+            
+            // Update select button for the removed course
+            const courseButton = document.querySelector(`.select-btn[onclick*="${removedCourse.id}"]`);
+            if (courseButton) {
+                courseButton.textContent = 'Select Course';
+            }
+
+            updateSelectedCoursesList();
+
+            // Manage continue button state
+            manageContinueButton();
+        }
+
+        function manageContinueButton() {
+            // Activate button only if at least one course is selected
+            if (selectedCourses.length > 0) {
+                continueButton.classList.add('active');
+                continueButton.disabled = false;
+            } else {
+                continueButton.classList.remove('active');
+                continueButton.disabled = true;
+            }
+        }
+
+        // Add event listener for continue button
+        continueButton.addEventListener('click', function() {
+            // Only proceed if button is active (has at least one course)
+            if (!this.classList.contains('active')) {
+                return; // Do nothing if no courses selected
+            }
+
+            // Prepare selected courses data
+            const selectedCoursesData = {
+                userId: document.getElementById('current-user-id').value,
+                courseIds: selectedCourses.map(course => course.id.toString()) // Convert to string
+            };
+
+            // Create a loading overlay
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.style.position = 'fixed';
+            loadingOverlay.style.top = '0';
+            loadingOverlay.style.left = '0';
+            loadingOverlay.style.width = '100%';
+            loadingOverlay.style.height = '100%';
+            loadingOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            loadingOverlay.style.display = 'flex';
+            loadingOverlay.style.justifyContent = 'center';
+            loadingOverlay.style.alignItems = 'center';
+            loadingOverlay.style.zIndex = '1000';
+            loadingOverlay.innerHTML = `
+                <div style="background-color: white; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h2>Preparing Learning Paths</h2>
+                    <p>This may take a few minutes. Please do not close the page.</p>
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(loadingOverlay);
+
+            // Verify learning paths
+            fetch('/verify-learning-paths', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: document.getElementById('current-user-id').value,
+                    courseIds: selectedCourses.map(course => course.id.toString()) // Convert to string
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(allPathsExist => {
+                // Remove loading overlay
+                document.body.removeChild(loadingOverlay);
+
+                if (allPathsExist) {
+                    // Show success alert
+                    alert('Learning paths for all recommended courses have been successfully downloaded!');
+                    
+                    // Redirect to home
+                    window.location.href = '/home';
+                } else {
+                    // Show error message if paths could not be downloaded
+                    alert('Unable to download learning paths. Please check your internet connection or try again later.');
+                }
+            })
+            .catch(error => {
+                // Remove loading overlay
+                if (loadingOverlay.parentNode) {
+                    document.body.removeChild(loadingOverlay);
+                }
+
+                console.error('Error:', error);
+                alert('An error occurred while processing your course selection.');
+            });
+        });
+
+        // Initialize continue button state on page load
+        document.addEventListener('DOMContentLoaded', manageContinueButton);
+
+        function updateSelectedCoursesList() {
+            const list = document.getElementById('selectedCoursesList');
+            list.innerHTML = selectedCourses.map((course, index) => `
+                <div class="selected-course-item">
+                    <div class="course-info">
+                        <span class="course-number">${index + 1}</span>
+                        <span class="course-title">${course.title}<span class="course-id">[ID: ${course.id}]</span></span>
+                    </div>
+                    <button class="remove-btn" onclick="removeCourse(${index})">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Popup functionality
+        function onload() {
+            showPopup(true);
+        }
+
+        function showPopup(isInitial = false) {
+            const assistantImage = document.getElementById('assistantImage');
+            const popupBox = document.getElementById('popupBox');
+            const overlay = document.getElementById('overlay');
+            
+            assistantImage.classList.add('expanded');
+            popupBox.style.display = 'block';
+            overlay.style.display = 'block';
+            setTimeout(() => overlay.classList.add('visible'), 10);
+            
+            if (isInitial) {
+                document.getElementById('tip1').style.display = 'block';
+            }
+        }
+
+        function closePopupAndMinimize() {
+            const assistantImage = document.getElementById('assistantImage');
+            const popupBox = document.getElementById('popupBox');
+            const overlay = document.getElementById('overlay');
+            const tips = document.querySelectorAll('.popup-content');
+            
+            assistantImage.classList.remove('expanded');
+            popupBox.style.display = 'none';
+            overlay.classList.remove('visible');
+            setTimeout(() => overlay.style.display = 'none', 300);
+            tips.forEach(tip => tip.style.display = 'none');
+        }
+
+        function showNextTip(tipNumber) {
+            const currentTip = document.getElementById(`tip${tipNumber - 1}`);
+            const nextTip = document.getElementById(`tip${tipNumber}`);
+            
+            if (currentTip) currentTip.style.display = 'none';
+            if (nextTip) nextTip.style.display = 'block';
+        }
+
+        // Image click handler for reopening
+        document.getElementById('assistantImage').addEventListener('click', () => {
+            const popupBox = document.getElementById('popupBox');
+            if (popupBox.style.display !== 'block') {
+                showPopup();
+                document.getElementById('tip1').style.display = 'block';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', onload);
+    </script>
+</body>
+</html>

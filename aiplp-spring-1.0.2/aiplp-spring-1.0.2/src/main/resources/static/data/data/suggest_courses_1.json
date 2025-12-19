@@ -1,0 +1,41 @@
+{
+  "recommendations" : [ {
+    "id" : 77,
+    "title" : "Business Management",
+    "description" : "Explore the principles of business management, including strategic planning, organizational behavior, and financial management.",
+    "confidence_score" : 90.0
+  }, {
+    "id" : 78,
+    "title" : "Case Study Analysis",
+    "description" : "Delve into real-world business scenarios and develop your analytical skills to tackle complex problems.",
+    "confidence_score" : 85.0
+  }, {
+    "id" : 79,
+    "title" : "Financial Modeling",
+    "description" : "Learn how to create financial models to forecast revenue, expenses, and profits, and make informed business decisions.",
+    "confidence_score" : 80.0
+  } ],
+  "user_id" : 1,
+  "quiz_performance" : {
+    "topic_scores" : {
+      "general" : 100.0,
+      "problem_solving" : 0.0,
+      "learning_style" : 50.0,
+      "logical_reasoning" : 100.0,
+      "mathematical" : 100.0,
+      "motivation" : 100.0
+    },
+    "overall_score" : 70.0,
+    "weak_areas" : [ "problem_solving", "learning_style" ],
+    "strengths" : [ "general", "logical_reasoning", "mathematical", "motivation" ],
+    "total_questions_answered" : 10,
+    "question_distribution" : {
+      "general" : 1,
+      "problem_solving" : 2,
+      "learning_style" : 2,
+      "logical_reasoning" : 2,
+      "mathematical" : 2,
+      "motivation" : 1
+    }
+  }
+}

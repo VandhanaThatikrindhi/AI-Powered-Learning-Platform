@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Content - LearnSphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f7fafc;
+            color: #2d3748;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        #logoutButton {
+            color: white;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            background-color: white;
+            border: none;
+            color: #667eea;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: #4a5568;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: color 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .back-button:hover {
+            color: #2d3748;
+        }
+
+        .content-header {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-path {
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        .tutorial-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-content {
+            color: #4a5568;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+
+        pre {
+            background: #282c34;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+        }
+
+        .section-metadata {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        .metadata-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metadata-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .key-takeaways {
+            background: #f8fafc;
+            padding: 1rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .output-block {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            transition: opacity 0.2s;
+            margin-bottom: 1rem;
+        }
+
+        .action-button:hover {
+            opacity: 0.9;
+        }
+
+        .complete-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .complete-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .complete-button:active {
+            transform: translateY(0);
+        }
+
+        .complete-button.completed {
+            background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+            cursor: default;
+        }
+
+        .complete-button .icon {
+            font-size: 1.25rem;
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .complete-button.completed .icon {
+            animation: checkmark 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/home" class="nav-brand">Learn</a>
+            <div class="nav-links">
+                <a href="/home" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" id="logoutButton" class="nav-link" style="font-size: 1rem;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="content-container">
+        <a href="javascript:history.back()" class="back-button">← Back to Course</a>
+        
+        <div class="content-header">
+            <h1 class="content-title" id="contentTitle">Activity Content</h1>
+            <div class="content-path" th:text="${'Path: ' + contentPath}">Path: user/course/activity</div>
+        </div>
+
+        <div id="tutorialSections"></div>
+        
+        <button id="completeButton" class="complete-button" onclick="markComplete()">
+            <span class="icon">✓</span>
+            Mark Complete
+        </button>
+    </div>
+
+    <script th:inline="javascript">
+        document.addEventListener('DOMContentLoaded', async (event) => {
+            // Get the JSON content from Thymeleaf
+            const jsonContent = /*[[${content}]]*/ '';
+            const contentPath = /*[[${contentPath}]]*/ '';
+            const [userId, courseId, activityId] = contentPath.split('/');
+            
+            // Initialize progress file
+            try {
+                // First initialize the progress
+                await fetch(`/api/progress/init/${userId}/${courseId}/${activityId}`, {
+                    method: 'POST'
+                });
+
+                // Then get the course progress to check completion status
+                const response = await fetch(`/api/progress/course/${userId}/${courseId}`);
+                const progressData = await response.json();
+                
+                // Check if this activity is completed
+                if (progressData.activities && progressData.activities[activityId] === true) {
+                    const button = document.getElementById('completeButton');
+                    button.classList.add('completed');
+                    button.innerHTML = '<span class="icon">✓</span>Completed';
+                    button.disabled = true;
+                }
+            } catch (error) {
+                console.error('Error checking progress:', error);
+            }
+            
+            try {
+                const data = JSON.parse(jsonContent);
+                
+                // Update title if available
+                if (data.component_content && data.component_content.title) {
+                    document.getElementById('contentTitle').textContent = data.component_content.title;
+                }
+                
+                // Create tutorial sections
+                const sectionsContainer = document.getElementById('tutorialSections');
+                if (data.component_content && data.component_content.content) {
+                    data.component_content.content.forEach(section => {
+                        const sectionElement = document.createElement('div');
+                        sectionElement.className = 'tutorial-section';
+                        
+                        // Add title
+                        const titleElement = document.createElement('h2');
+                        titleElement.className = 'section-title';
+                        titleElement.textContent = section.title;
+                        sectionElement.appendChild(titleElement);
+                        
+                        // Add content
+                        const contentElement = document.createElement('div');
+                        contentElement.className = 'section-content';
+                        let content = section.content;
+                        
+                        // Replace code blocks
+                        content = content.replace(/```python([\s\S]*?)```/g, '<pre><code class="language-python">$1</code></pre>');
+                        content = content.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+                        
+                        contentElement.innerHTML = content;
+                        sectionElement.appendChild(contentElement);
+                        
+                        // Add metadata if available
+                        if (section.duration || section.difficulty) {
+                            const metadataElement = document.createElement('div');
+                            metadataElement.className = 'section-metadata';
+                            
+                            if (section.duration) {
+                                const durationItem = document.createElement('div');
+                                durationItem.className = 'metadata-item';
+                                durationItem.innerHTML = `<span class="metadata-icon">⏱️</span><span>${section.duration}</span>`;
+                                metadataElement.appendChild(durationItem);
+                            }
+                            
+                            if (section.difficulty) {
+                                const difficultyItem = document.createElement('div');
+                                difficultyItem.className = 'metadata-item';
+                                difficultyItem.innerHTML = `<span class="metadata-icon">📊</span><span>${section.difficulty}</span>`;
+                                metadataElement.appendChild(difficultyItem);
+                            }
+                            
+                            sectionElement.appendChild(metadataElement);
+                        }
+                        
+                        sectionsContainer.appendChild(sectionElement);
+                    });
+                }
+                
+                // Apply syntax highlighting
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightElement(block);
+                });
+            } catch (e) {
+                console.error('Error parsing JSON:', e);
+            }
+        });
+
+        async function markComplete() {
+            const button = document.getElementById('completeButton');
+            if (!button.classList.contains('completed')) {
+                const path = /*[[${contentPath}]]*/ '';
+                const [userId, courseId, activityId] = path.split('/');
+                
+                try {
+                    const response = await fetch(`/api/progress/complete/${userId}/${courseId}/${activityId}`, {
+                        method: 'POST'
+                    });
+                    
+                    if (response.ok) {
+                        button.classList.add('completed');
+                        button.innerHTML = '<span class="icon">✓</span>Completed';
+                        button.disabled = true;
+                    } else {
+                        console.error('Failed to mark as complete');
+                    }
+                } catch (error) {
+                    console.error('Error marking as complete:', error);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

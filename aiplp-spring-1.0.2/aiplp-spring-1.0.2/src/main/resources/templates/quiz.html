@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Style Assessment - Learn</title>
+    <link rel="stylesheet" href="/css/quiz_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .assistant-image {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+            background: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .assistant-image:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .assistant-image.expanded {
+            width: 320px;
+            height: 400px;
+            bottom: 50px;
+            left: 50px;
+            background: transparent;
+            border-radius: 0;
+            background-image: url('/images/Untitled11_20250211132733.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: transparent;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .assistant-image.expanded:hover {
+            background-color: transparent;
+            transform: none;
+        }
+
+        .popup-box {
+            display: none;
+            position: fixed;
+            bottom: 200px;
+            left: 380px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            z-index: 999;
+            transform: none;
+            transition: all 0.3s ease-in-out;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .overlay.visible {
+            opacity: 1;
+        }
+
+        .popup-content {
+            display: none;
+        }
+
+        .popup-content h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .popup-content p {
+            margin-bottom: 25px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        .popup-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+            transition: background-color 0.3s ease;
+        }
+
+        .popup-button:hover {
+            background: #0056b3;
+        }
+
+        /* Fullscreen Modal Styles */
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .fullscreen-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .fullscreen-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Disable text selection */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Allow text selection in input fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="assistant-image" id="assistantImage">i</div>
+    <div class="popup-box" id="popupBox">
+        <div class="popup-content" id="tip1">
+            <h3>Welcome to the Learning Style Assessment!</h3>
+            <p>This assessment will help us understand how you best process and retain information.</p>
+            <button class="popup-button" onclick="showNextTip(2)">Next</button>
+        </div>
+        <div class="popup-content" id="tip2">
+            <h3>How It Works</h3>
+            <p>Answer questions about your learning preferences. Each question helps identify your unique cognitive style.</p>
+            <button class="popup-button" onclick="showNextTip(3)">Next</button>
+        </div>
+        <div class="popup-content" id="tip3">
+            <h3>Ready to Begin?</h3>
+            <p>Take your time with each question. Click 'Start Assessment' when you're ready to begin.</p>
+            <button class="popup-button" onclick="closePopupAndMinimize()">Got it!</button>
+        </div>
+        <div class="popup-content" id="results-tip">
+            <h3>Analyzing Your Results</h3>
+            <p>We're now processing your responses to generate personalized course recommendations tailored to your unique learning style.</p>
+            <p>This may take a moment as we carefully match your cognitive preferences with our course database.</p>
+            <button class="popup-button" onclick="closePopupAndMinimize()">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <div class="fullscreen-modal-content">
+            <h2>Not in Fullscreen Mode</h2>
+            <p>Please switch to fullscreen mode to continue.</p>
+            <button class="fullscreen-button" onclick="enterFullscreen()">Enter Fullscreen</button>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Learn</div>
+            <div class="nav-actions">
+                <a th:href="@{/logout}" class="logout-button">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="name-screen" class="quiz-container">
+            <div class="quiz-header">
+                <h2>Cognitive and Learning Style Assessment</h2>
+                <p>Discover your unique learning preferences and cognitive patterns</p>
+            </div>
+            <button id="start-quiz" class="action-btn">
+                <i class="fas fa-play"></i> Start Assessment
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="quiz-container" style="display:none;">
+            <div id="question-container">
+                <div class="question-label">Question:</div>
+                <h2 id="question-text"></h2>
+                <img id="question-image" class="question-image" style="display:none;">
+                <div class="options-label">Options:</div>
+                <div id="answer-buttons" class="answer-grid"></div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="quiz-container" style="display:none;">
+            <div class="quiz-header">
+                <h2>Assessment Complete!</h2>
+                <div id="score-display"></div>
+            </div>
+            <div class="results-message">
+                <p>Your responses have been recorded. Please wait while we analyze your results...</p>
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/quiz.js"></script>
+    <script>
+        window.onload = function() {
+            showPopup(true);
+        };
+
+        function showPopup(isInitial = false, isResults = false) {
+            const assistantImage = document.getElementById('assistantImage');
+            const popupBox = document.getElementById('popupBox');
+            const overlay = document.getElementById('overlay');
+            
+            assistantImage.classList.add('expanded');
+            popupBox.style.display = 'block';
+            overlay.style.display = 'block';
+            overlay.classList.add('visible');
+            
+            if (isResults) {
+                showResultsTip();
+            } else if (isInitial) {
+                showNextTip(1);
+            }
+        }
+
+        function showResultsTip() {
+            document.querySelectorAll('.popup-content').forEach(tip => {
+                tip.style.display = 'none';
+            });
+            document.getElementById('results-tip').style.display = 'block';
+        }
+
+        function closePopupAndMinimize() {
+            const assistantImage = document.getElementById('assistantImage');
+            const popupBox = document.getElementById('popupBox');
+            const overlay = document.getElementById('overlay');
+            
+            assistantImage.classList.remove('expanded');
+            popupBox.style.display = 'none';
+            overlay.classList.remove('visible');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+        }
+
+        // Image click handler for reopening
+        document.getElementById('assistantImage').addEventListener('click', () => {
+            const popupBox = document.getElementById('popupBox');
+            const resultsScreen = document.getElementById('results-screen');
+            
+            if (popupBox.style.display !== 'block') {
+                if (resultsScreen.style.display === 'block') {
+                    // Only show results tip when on results screen
+                    showPopup(false, true);
+                } else {
+                    // Show welcome tips for other screens
+                    showPopup(true);
+                }
+            }
+        });
+
+        function showNextTip(tipNumber) {
+            document.querySelectorAll('[id^="tip"]').forEach(tip => {
+                tip.style.display = 'none';
+            });
+            
+            const tipElement = document.getElementById('tip' + tipNumber);
+            if (tipElement) {
+                tipElement.style.display = 'block';
+            }
+        }
+
+        // Hook into the quiz completion
+        document.addEventListener('quizCompleted', function() {
+            setTimeout(() => {
+                showPopup(false, true);
+            }, 500);
+        });
+
+        // Fullscreen functionality
+        function enterFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function exitFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+
+        function checkFullscreen() {
+            const modal = document.getElementById('fullscreenModal');
+            if (!document.fullscreenElement && 
+                !document.webkitFullscreenElement && 
+                !document.msFullscreenElement) {
+                modal.style.display = 'flex';
+            } else {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Check fullscreen on page load
+        document.addEventListener('DOMContentLoaded', checkFullscreen);
+
+        // Check fullscreen on change
+        document.addEventListener('fullscreenchange', checkFullscreen);
+        document.addEventListener('webkitfullscreenchange', checkFullscreen);
+        document.addEventListener('msfullscreenchange', checkFullscreen);
+
+        // Check fullscreen when window gains focus
+        window.addEventListener('focus', checkFullscreen);
+
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+C, Ctrl+V, Ctrl+A
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'v' || e.key === 'a')) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable F12 key
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable drag and drop
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable copy and paste
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
+</body>
+</html>

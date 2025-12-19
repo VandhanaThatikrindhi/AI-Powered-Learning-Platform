@@ -1,0 +1,5 @@
+[2025-04-19T18:36:25.756614085] Starting course recommendation fetch for user 1
+[2025-04-19T18:36:25.758445567] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-19T18:36:33.311588921] Fetched 4 course recommendations for user 1. Course IDs: [73, 74, 75, 76]
+[2025-04-19T18:36:33.313311026] Successfully saved course recommendations for user 1
+[2025-04-19T18:36:33.313541907] Completed recommendation fetch process for user 1

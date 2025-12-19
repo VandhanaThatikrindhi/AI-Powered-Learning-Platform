@@ -1,0 +1,46 @@
+{
+  "recommendations" : [ {
+    "id" : 73,
+    "title" : "Business Analytics with Python",
+    "description" : "Learn how to apply data analysis techniques using Python and popular libraries like Pandas, NumPy, and Scikit-learn.",
+    "confidence_score" : 85.0
+  }, {
+    "id" : 74,
+    "title" : "Marketing Strategy Development",
+    "description" : "Explore the fundamentals of marketing strategy development, including market research, segmentation, targeting, and positioning. This course will help you develop a comprehensive understanding of marketing strategies.",
+    "confidence_score" : 90.0
+  }, {
+    "id" : 75,
+    "title" : "Economics for Business Decision Making",
+    "description" : "Learn how to apply economic concepts to business decision making, including microeconomics, macroeconomics, and econometrics. This course will help you understand the economic principles behind business decisions.",
+    "confidence_score" : 88.0
+  }, {
+    "id" : 76,
+    "title" : "Data-Driven Leadership",
+    "description" : "Develop your leadership skills by learning how to make data-driven decisions, set goals, and measure performance. This course will help you become a more effective leader in a rapidly changing business environment.",
+    "confidence_score" : 92.0
+  } ],
+  "user_id" : 1,
+  "quiz_performance" : {
+    "topic_scores" : {
+      "general" : 100.0,
+      "problem_solving" : 0.0,
+      "learning_style" : 50.0,
+      "logical_reasoning" : 100.0,
+      "mathematical" : 100.0,
+      "motivation" : 100.0
+    },
+    "overall_score" : 70.0,
+    "weak_areas" : [ "problem_solving", "learning_style" ],
+    "strengths" : [ "general", "logical_reasoning", "mathematical", "motivation" ],
+    "total_questions_answered" : 10,
+    "question_distribution" : {
+      "general" : 1,
+      "problem_solving" : 2,
+      "learning_style" : 2,
+      "logical_reasoning" : 2,
+      "mathematical" : 2,
+      "motivation" : 1
+    }
+  }
+}

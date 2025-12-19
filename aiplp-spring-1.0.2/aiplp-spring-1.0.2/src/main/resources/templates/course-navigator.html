@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Navigator - LearnSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .course-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .course-title {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .modules-container {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .module {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
+            color: white;
+        }
+
+        .module-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .sub-modules {
+            padding: 1rem;
+        }
+
+        .sub-module {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .sub-module:last-child {
+            margin-bottom: 0;
+        }
+
+        .sub-module-title {
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-module-description {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .learning-outcomes {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .learning-outcome {
+            font-size: 0.85rem;
+            color: #4a5568;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .activity.completed {
+            border-left: 4px solid #48bb78;
+        }
+
+        .activity-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.25rem;
+            color: #cbd5e0;
+        }
+
+        .completed .activity-status {
+            color: #48bb78;
+        }
+
+        .completed .activity-title::after {
+            content: " (Completed)";
+            color: #48bb78;
+            font-size: 0.875rem;
+            font-weight: normal;
+            margin-left: 0.5rem;
+        }
+
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding-right: 2rem;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity div {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        .open-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            text-decoration: none;
+        }
+
+        .open-button:hover {
+            opacity: 0.9;
+        }
+
+        .error-message {
+            background: #fff5f5;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tags span {
+            background: #e2e8f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/home" class="nav-brand">Learn</a>
+            <div class="nav-links">
+                <a href="/home" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <form th:action="@{/logout}" method="post" style="margin: 0;">
+                    <button type="submit" class="nav-link" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Error Message -->
+        <div th:if="${error}" class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <span th:text="${error}">Error message</span>
+        </div>
+
+        <!-- Course Content -->
+        <div th:if="${learningPath != null}">
+            <div th:if="${!#lists.isEmpty(learningPath.prerequisites)}" style="background: #edf2f7; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="color: #2d3748; margin-bottom: 0.75rem;">Prerequisites</h3>
+                <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                    <li th:each="prerequisite : ${learningPath.prerequisites}" style="color: #4a5568; margin-bottom: 0.5rem;" th:text="${prerequisite}">Prerequisite</li>
+                </ul>
+            </div>
+            <!-- Course Header -->
+            <div class="course-header">
+                <h1 class="course-title">Course Progress</h1>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" th:style="'width: ' + ${progress} + '%'"></div>
+                    </div>
+                    <div class="progress-text" th:text="${progress + '% Complete'}">0% Complete</div>
+                </div>
+            </div>
+
+            <!-- Modules -->
+            <div class="modules-container">
+                <div th:each="module,moduleStatus : ${learningPath.modules}" class="module">
+                    <div class="module-header">
+                        <h2 class="module-title" th:text="${module.title}">Module Title</h2>
+                        <p class="module-description" th:text="${module.description}">Module description</p>
+                        <div th:if="${!#lists.isEmpty(module.tags)}" class="tags" style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+                            <span th:each="tag : ${module.tags}" style="background: #e2e8f0; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: #4a5568;" th:text="${tag}">Tag</span>
+                        </div>
+                    </div>
+                    <div class="sub-modules">
+                        <div th:each="subModule,subModuleStatus : ${module.subModules}" class="sub-module">
+                            <h3 class="sub-module-title" th:text="${subModule.title}">Sub-module Title</h3>
+                            <p class="sub-module-description" th:text="${subModule.description}">Sub-module description</p>
+                            <div th:if="${!#lists.isEmpty(subModule.tags)}" class="tags" style="display: flex; gap: 0.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                                <span th:each="tag : ${subModule.tags}" style="background: #edf2f7; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: #4a5568;" th:text="${tag}">Tag</span>
+                            </div>
+                            <ul class="learning-outcomes" th:if="${!#lists.isEmpty(subModule.learningOutcomes)}">
+                                <li th:each="outcome : ${subModule.learningOutcomes}" class="learning-outcome" th:text="${outcome}">Learning outcome</li>
+                            </ul>
+                            <div th:each="activity,activityStatus : ${subModule.activities}" class="activity">
+                                <div class="activity-content">
+                                    <div class="activity-header">
+                                        <div>
+                                            <h4 class="activity-title" th:text="${activity.title}">Activity Title</h4>
+                                            <p class="activity-description" th:text="${activity.description}">Activity description</p>
+                                        </div>
+                                        <span class="activity-status"></span>
+                                    </div>
+                                    <div th:if="${!#lists.isEmpty(activity.tags)}" class="tags" style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+                                        <span th:each="tag : ${activity.tags}" style="background: #f7fafc; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: #4a5568;" th:text="${tag}">Tag</span>
+                                    </div>
+                                    <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: #718096;">
+                                        <span th:text="'Duration: ' + ${activity.duration} + ' minutes'">Duration</span>
+                                        <span th:text="'Difficulty: ' + ${#strings.capitalize(activity.difficulty)}">Difficulty</span>
+                                    </div>
+                                    <div th:if="${!#lists.isEmpty(activity.learningOutcomes)}" style="margin-top: 0.5rem;">
+                                        <p style="color: #4a5568; font-size: 0.875rem; font-weight: 500;">Learning Outcomes:</p>
+                                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.25rem;">
+                                            <li th:each="outcome : ${activity.learningOutcomes}" style="color: #4a5568; font-size: 0.875rem; margin-bottom: 0.25rem;" th:text="${outcome}">Learning Outcome</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a th:with="activityId='M' + (${moduleStatus.index} + 1) + '-S' + (${subModuleStatus.index} + 1) + '-A' + (${activityStatus.index} + 1)"
+                                   th:href="@{'/view/content/' + ${user.id} + '/' + ${courseId} + '/' + ${activityId}}"
+                                   class="open-button">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        async function updateProgress() {
+            const userId = /*[[${user.id}]]*/ '';
+            const courseId = /*[[${courseId}]]*/ '';
+            
+            try {
+                const response = await fetch(`/api/progress/course/${userId}/${courseId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch progress');
+                }
+                const data = await response.json();
+                const activities = data.activities || {};
+                
+                let totalActivities = 0;
+                let completedActivities = 0;
+                
+                // Update all progress bars
+                document.querySelectorAll('.module').forEach((moduleElement, moduleIndex) => {
+                    const moduleId = moduleIndex + 1;
+                    let moduleCompleted = 0;
+                    let moduleTotal = 0;
+                    
+                    moduleElement.querySelectorAll('.sub-module').forEach((subModuleElement, subModuleIndex) => {
+                        const subModuleId = subModuleIndex + 1;
+                        let subModuleCompleted = 0;
+                        let subModuleTotal = 0;
+                        
+                        subModuleElement.querySelectorAll('.activity').forEach((activityElement, activityIndex) => {
+                            const activityId = `M${moduleId}-S${subModuleId}-A${activityIndex + 1}`;
+                            const isCompleted = activities[activityId] || false;
+                            
+                            // Update activity status
+                            if (isCompleted) {
+                                activityElement.classList.add('completed');
+                                subModuleCompleted++;
+                                moduleCompleted++;
+                                completedActivities++;
+                            } else {
+                                activityElement.classList.remove('completed');
+                            }
+                            subModuleTotal++;
+                            moduleTotal++;
+                            totalActivities++;
+                            
+                            // Update checkmark
+                            const checkmark = activityElement.querySelector('.activity-status');
+                            if (checkmark) {
+                                checkmark.innerHTML = isCompleted ? '✓' : '';
+                            }
+                        });
+                        
+                        // Update sub-module progress bar
+                        const subModuleProgress = subModuleElement.querySelector('.progress-bar div');
+                        if (subModuleProgress) {
+                            const percentage = (subModuleCompleted / subModuleTotal) * 100;
+                            subModuleProgress.style.width = `${percentage}%`;
+                            subModuleProgress.style.backgroundColor = percentage === 100 ? '#48bb78' : '#667eea';
+                        }
+                    });
+                    
+                    // Update module progress bar
+                    const moduleProgress = moduleElement.querySelector('.module-progress-bar div');
+                    if (moduleProgress) {
+                        const percentage = (moduleCompleted / moduleTotal) * 100;
+                        moduleProgress.style.width = `${percentage}%`;
+                        moduleProgress.style.backgroundColor = percentage === 100 ? '#48bb78' : '#667eea';
+                    }
+                });
+                
+                // Update overall course progress
+                const courseProgress = document.querySelector('.course-header .progress-bar div');
+                const courseProgressText = document.querySelector('.course-header .progress-text');
+                if (courseProgress && courseProgressText && totalActivities > 0) {
+                    const percentage = Math.round((completedActivities / totalActivities) * 100);
+                    courseProgress.style.width = `${percentage}%`;
+                    courseProgress.style.backgroundColor = percentage === 100 ? '#48bb78' : '#667eea';
+                    courseProgressText.textContent = `${percentage}% Complete`;
+
+                    // Send total progress to server
+                    await fetch(`/api/progress/update-total/${userId}/${courseId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            totalActivities: totalActivities,
+                            completedActivities: completedActivities,
+                            progressPercentage: percentage
+                        })
+                    });
+                }
+            } catch (error) {
+                console.error('Error updating progress:', error);
+            }
+        }
+        
+        // Update progress when page loads
+        document.addEventListener('DOMContentLoaded', updateProgress);
+        
+        // Update progress every 5 seconds
+        setInterval(updateProgress, 5000);
+    </script>
+</body>
+</html>

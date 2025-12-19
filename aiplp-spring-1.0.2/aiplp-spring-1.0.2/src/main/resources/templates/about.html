@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Learn</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a th:href="@{/dashboard}" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="logo">Learn</div>
+            <div class="nav-actions">
+                <a th:href="@{/}" class="nav-link">Home</a>
+                <a th:href="@{/about}" class="nav-link active">About</a>
+                <a th:href="@{/contact}" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="about-container">
+        <h1>About Learn</h1>
+        <div class="about-section">
+            <div class="section-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>Our Mission</h2>
+                <p>Learn is dedicated to making education accessible and engaging for everyone. We provide a platform where students can learn at their own pace with personalized course recommendations.</p>
+            </div>
+
+            <div class="section-card">
+                <i class="fas fa-book-reader"></i>
+                <h2>How It Works</h2>
+                <p>Browse our extensive collection of courses, select the ones that interest you, and track your progress through our intuitive dashboard. Our platform adapts to your learning style and provides recommendations based on your interests.</p>
+            </div>
+
+            <div class="section-card">
+                <i class="fas fa-trophy"></i>
+                <h2>Achievement System</h2>
+                <p>Stay motivated with our achievement system. Earn badges and certificates as you complete courses and milestones. Track your progress and showcase your accomplishments on your profile.</p>
+            </div>
+
+            <div class="section-card">
+                <i class="fas fa-users"></i>
+                <h2>Community Learning</h2>
+                <p>Join a community of learners, share your experiences, and learn from others. Our platform encourages collaborative learning and knowledge sharing.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ensure body is fully loaded before showing content
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Learn</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #submitFeedbackBtn {
+            background-color: #667ee6;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: white;
+        }
+        #closeFeedbackPopupBtn {
+            background-color: #667ee6;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: white;
+        }
+        .user-sex-icon {
+            margin-left: 2px;
+            color: #667ee6;
+            display: inline-block;
+        }
+        .info-group {
+            position: relative;
+        }
+        .email-container {
+            display: flex;
+            align-items: center;
+        }
+        .address-text {
+            white-space: pre-line;
+            margin: 0;
+        }
+        .course-status {
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: inline-block;
+            background-color: #e3e8ff;
+            color: #4a5568;
+        }
+        .course-item {
+            padding: 15px;
+            border-radius: 8px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .course-item:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .course-item h3 {
+            margin: 0 0 8px 0;
+            color: #2d3748;
+        }
+        .view-course-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .view-course-btn:hover {
+            background-color: #357abd;
+        }
+        .course-progress {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .course-progress h3 {
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+
+        .progress-visualization {
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #4a90e2;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        .chat-messages {
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+        }
+        
+        .message-content {
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            text-align: right;
+        }
+        
+        .user-message .message-content {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .ai-message .message-content {
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
+        
+        .speaker {
+            font-weight: bold;
+            font-size: 0.9em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .message p {
+            margin: 0;
+            word-wrap: break-word;
+        }
+        
+        .message-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .code-block {
+            font-family: 'Lucida Console', monospace;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .certificates-card {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .certificate-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .certificate-info {
+            flex-grow: 1;
+        }
+
+        .certificate-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .certificate-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .generate-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .download-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .generate-btn:hover, .download-btn:hover {
+            opacity: 0.9;
+        }
+
+        .certificate-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-left: 10px;
+        }
+
+        .status-completed {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-pending {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .welcome-tooltip {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .welcome-tooltip.show {
+            display: block;
+        }
+        
+        .welcome-tooltip .tooltip-content {
+            text-align: center;
+        }
+        
+        .welcome-tooltip .tooltip-dismiss {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .welcome-tooltip .tooltip-dismiss:hover {
+            background-color: #3e8e41;
+        }
+        
+        .keyboard-shortcut {
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 2px 5px;
+            border-radius: 5px;
+            background-color: #f0f2f5;
+        }
+        
+        .empty-course {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 2px dashed #c3c8d0;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .empty-course-content {
+            text-align: center;
+        }
+        
+        .select-course-btn {
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .select-course-btn:hover {
+            background-color: #357abd;
+        }
+        
+        .course-id {
+            font-size: 0.7em;
+            color: #6c757d;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+        
+        .error-message-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+        
+        .error-message i {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #e74c3c;
+        }
+        
+        .error-action-btn {
+            padding: 8px 16px;
+            background-color: #4a90e2;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+        
+        .error-action-btn:hover {
+            background-color: #357abd;
+        }
+        
+        .module-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .module-box {
+            flex: 0 0 auto;
+            padding: 10px 15px;
+            background-color: #f0f2f5;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-box.completed {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+        }
+
+        .module-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .module-title {
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .module-count {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .module-count p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #2d3748;
+        }
+        
+        .achievements-card {
+            background: white;
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: #3b82f6;
+        }
+
+        .achievement-item i {
+            color: #fbbf24;
+            font-size: 1.5em;
+        }
+
+        .achievement-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .achievement-title {
+            color: #2d3748;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .achievement-date {
+            color: #718096;
+            font-size: 0.85em;
+        }
+
+        .no-achievements {
+            text-align: center;
+            padding: 30px;
+            color: #718096;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px dashed #e2e8f0;
+        }
+
+        .no-achievements i {
+            font-size: 1.2em;
+            margin-right: 8px;
+            color: #3b82f6;
+        }
+
+        @keyframes achievement-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .achievement-item.new {
+            animation: achievement-pulse 2s infinite;
+            border-color: #3b82f6;
+            background: #ebf5ff;
+        }
+        
+        /* Feedback Popup Styles */
+        .feedback-popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .feedback-popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .star-rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+        }
+        .star-rating > label {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+            font-size: 2em;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .star-rating > label:hover,
+        .star-rating > label:hover ~ label,
+        .star-rating > input:checked ~ label {
+            color: #ffca08;
+        }
+        .star-rating > input {
+            display: none;
+        }
+        .feedback-popup textarea {
+            resize: vertical;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <button id="sidebar-toggle" class="menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">Learn</div>
+            <div class="nav-actions">
+                <a th:href="@{/about}" class="nav-link">About</a>
+                <a th:href="@{/contact}" class="nav-link">Contact</a>
+                <div class="profile-dropdown">
+                    <button class="profile-trigger" id="profileDropdownTrigger">
+                        <div class="profile-picture">
+                            <img th:if="${base64ProfilePicture != null}" 
+                                 th:src="${'data:' + profilePictureType + ';base64,' + base64ProfilePicture}" 
+                                 alt="Profile Picture">
+                            <i th:unless="${base64ProfilePicture != null}" 
+                               class="fas fa-user"></i>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdownMenu">
+                        <a th:href="@{/edit-profile}" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            Edit Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a th:href="@{/logout}" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome tooltip -->
+    <div id="welcomeTooltip" class="welcome-tooltip">
+        <div class="tooltip-content">
+            <h3>Welcome to Your Dashboard! 👋</h3>
+            <p>Keyboard Shortcuts:</p>
+            <ul class="shortcut-list">
+                <li><span class="keyboard-shortcut">Alt + /</span> Toggle Sidebar</li>
+                <li><span class="keyboard-shortcut">Alt + D</span> Dashboard</li>
+                <li><span class="keyboard-shortcut">Alt + P</span> Profile</li>
+                <li><span class="keyboard-shortcut">Alt + R</span> Recommendations</li>
+                <li><span class="keyboard-shortcut">Alt + Q</span> Current Path</li>
+                <li><span class="keyboard-shortcut">Alt + C</span> Certificates</li>
+            </ul>
+            <button onclick="dismissTooltip()" class="tooltip-dismiss">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-content" id="sidebarContent">
+            <div class="user-avatar">
+                <img th:if="${base64ProfilePicture != null}" 
+                     th:src="${'data:' + profilePictureType + ';base64,' + base64ProfilePicture}" 
+                     alt="User Avatar" 
+                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%;">
+                <i th:unless="${base64ProfilePicture != null}" 
+                   class="fas fa-user" 
+                   style="font-size: 100%; color: rgb(255, 255, 255); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></i>
+            </div>
+            <div class="user-info">
+                <div class="user-details">
+                    <span th:text="${user.firstName + ' ' + user.lastName}" class="user-name">User Name</span>
+                    <span class="user-role">Student</span>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#" onclick="showDashboardSection()">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/course/view">
+                        <i class="fas fa-book-open"></i> My Courses
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="toggleProfileSection()">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                </li>
+                
+				<li>
+				    <a th:href="@{/course/recommendations}">
+                        <i class="fas fa-star"></i> Recommendations
+                    </a>
+				</li>
+				<li>
+					<a href="#" onclick="toggleCertificatesSection(); return false;">
+						<i class="fas fa-certificate"></i>
+						<span>Certificates</span>
+					</a>
+				</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Error Message Section -->
+        <div th:if="${errorMessage}" class="error-message-container">
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span th:text="${errorMessage}">An error occurred</span>
+                <a href="@{/course/recommendations}" class="error-action-btn">Select Courses</a>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section" style="display: none;" id="profileSection">
+            <div class="dashboard-card profile-card">
+                <h2><i class="fas fa-user-circle"></i> Profile Information</h2>
+                <div class="profile-info">
+                    <div class="info-group">
+                        <label>First Name</label>
+                        <p th:text="${user.firstName}">John</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Last Name</label>
+                        <p th:text="${user.lastName}">Doe</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email</label>
+                        <div class="email-container">
+                            <p th:text="${user.email}">john@example.com</p>
+                            <span class="user-sex-icon" th:if="${user.sex == 'Male'}">
+                                <i class="fas fa-mars"></i>
+                            </span>
+                            <span class="user-sex-icon" th:if="${user.sex == 'Female'}">
+                                <i class="fas fa-venus"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <label>Phone Number</label>
+                        <p th:text="${user.phoneNumber != null ? user.phoneNumber : 'Not added yet'}">Not added yet</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Country</label>
+                        <p th:text="${user.country != null ? user.country : 'Not added yet'}">Not added yet</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Address</label>
+                        <p class="address-text" th:text="${user.address != null ? user.address : 'Not added yet'}">Not added yet</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Date of Birth</label>
+                        <p th:text="${user.dateOfBirth != null ? #temporals.format(user.dateOfBirth, 'dd-MM-yyyy') : 'Not added yet'}">Not added yet</p>
+                    </div>
+                </div>
+                
+                <!-- Complete Profile Form (Hidden by default) -->
+                <div class="complete-profile-form" style="display: none;" id="completeProfileForm">
+                    <form th:action="@{/user/complete-profile}" method="post">
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <div class="input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" 
+                                       th:value="${user.phoneNumber}"
+                                       placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth</label>
+                            <div class="input-group">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" 
+                                       th:value="${user.dateOfBirth}">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="save-profile-btn">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                            <button type="button" class="cancel-btn" id="cancelProfileEdit">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="profile-actions">
+                    <a th:href="@{/edit-profile}" 
+                       class="complete-profile-btn" 
+                       id="editProfileBtn">
+                        <i class="fas fa-user-edit"></i> Edit Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificates Section -->
+        <div class="certificates-section" style="display: none;" id="certificatesSection">
+            <div class="dashboard-card certificates-card">
+                <h2><i class="fas fa-certificate"></i> Course Certificates</h2>
+                <div th:if="${certificateError}" class="alert alert-warning">
+                    <p th:text="${certificateError}">Error loading certificates</p>
+                </div>
+                <div th:unless="${certificateError}">
+                    <div th:if="${completedCourses != null and !completedCourses.isEmpty()}">
+                        <div th:each="course : ${completedCourses}" class="certificate-item">
+                            <span th:text="${course.courseTitle}">Course Title</span>
+                            <span th:text="${course.completionDate}">Completion Date</span>
+                            <a th:href="@{/certificates/generate/{courseId}(courseId=${course.courseId})}" 
+                               th:attr="data-course-id=${course.courseId}"
+                               class="btn btn-primary btn-sm">Download Certificate</a>
+                        </div>
+                    </div>
+                    <div th:if="${completedCourses == null or completedCourses.isEmpty()}" class="text-muted">
+                        No certificates available. Complete courses to earn certificates.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid" id="dashboardGrid">
+            <div class="row first-row">
+                <div class="dashboard-card current-courses-card">
+                    <h2><i class="fas fa-book"></i> Current Courses</h2>
+                    <div class="course-list">
+                        <!-- Course Slot 1 -->
+                        <div th:if="${user.courseSelected1 != null}" class="course-item">
+                            <h3 th:text="${selectedCourses[0].title}">Primary Course</h3>
+                            <div class="course-status">
+                                <span th:text="'Course ID: ' + ${selectedCourses[0].id}">Course ID: 000</span>
+                            </div>
+                            <a th:href="@{'/course-navigator/' + ${selectedCourses[0].id}}" class="view-course-btn">
+                                <i class="fas fa-book-open"></i> Course Navigator
+                            </a>
+                        </div>
+                        <div th:if="${user.courseSelected1 == null}" class="course-item empty-course">
+                            <div class="empty-course-content">
+                                <p>Course Not Selected</p>
+                                <a th:href="@{/course/recommendations}" class="select-course-btn">Select a Course</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Course Slot 2 -->
+                        <div th:if="${user.courseSelected2 != null}" class="course-item">
+                            <h3 th:text="${selectedCourses[1].title}">Secondary Course</h3>
+                            <div class="course-status">
+                                <span th:text="'Course ID: ' + ${selectedCourses[1].id}">Course ID: 000</span>
+                            </div>
+                            <a th:href="@{'/course-navigator/' + ${selectedCourses[1].id}}" class="view-course-btn">
+                                <i class="fas fa-book-open"></i> Course Navigator
+                            </a>
+                        </div>
+                        <div th:if="${user.courseSelected2 == null}" class="course-item empty-course">
+                            <div class="empty-course-content">
+                                <p>Course Not Selected</p>
+                                <a th:href="@{/course/recommendations}" class="select-course-btn">
+                                    <i class="fas fa-plus" style="margin-right: 5px;"></i>Select a Course
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Course Slot 3 -->
+                        <div th:if="${user.courseSelected3 != null}" class="course-item">
+                            <h3 th:text="${selectedCourses[2].title}">Additional Course</h3>
+                            <div class="course-status">
+                                <span th:text="'Course ID: ' + ${selectedCourses[2].id}">Course ID: 000</span>
+                            </div>
+                            <a th:href="@{'/course-navigator/' + ${selectedCourses[2].id}}" class="view-course-btn">
+                                <i class="fas fa-book-open"></i> Course Navigator
+                            </a>
+                        </div>
+                        <div th:if="${user.courseSelected3 == null}" class="course-item empty-course">
+                            <div class="empty-course-content">
+                                <p>Course Not Selected</p>
+                                <a th:href="@{/course/recommendations}" class="select-course-btn">
+                                    <i class="fas fa-plus" style="margin-right: 5px;"></i>Select a Course
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-card progress-overview-card">
+                    <h2><i class="fas fa-chart-bar"></i> Progress Overview</h2>
+                    <h4 style="text-align: center;margin-top: 55px">progress chart</h4>
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="row second-row">
+                <div class="dashboard-card course-progress-card">
+                    <h2><i class="fas fa-tasks"></i> Course Progress</h2>
+                    <div class="course-progress-content">
+                        <!-- Course 1 Progress -->
+                        <div style="text-decoration: none" class="course-progress" th:if="${user.courseSelected1 != null}">
+                            <h3 >
+                                <a style="text-decoration: none"  th:href="@{'/course/' + ${selectedCourses[0].id}}">
+                                    <span th:text="${selectedCourses[0].title}">Course Title</span>
+                                    <small class="course-id" th:text="'(ID: ' + ${selectedCourses[0].id} + ')'"></small>
+                                </a>
+                            </h3>
+                            <div class="progress-visualization">
+                                <div class="progress-header">
+                                    <span class="progress-label">Course Progress</span>
+                                    <span class="progress-percentage" th:id="'progress-percentage-1'">0%</span>
+                                </div>
+                                <div class="progress-bar" th:id="'progress-bar-1'">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course 2 Progress -->
+                        <div class="course-progress" th:if="${user.courseSelected2 != null}">
+                            <h3>
+                                <a style="text-decoration: none" th:href="@{'/course/' + ${selectedCourses[1].id}}">
+                                    <span th:text="${selectedCourses[1].title}">Course Title</span>
+                                    <small class="course-id" th:text="'(ID: ' + ${selectedCourses[1].id} + ')'"></small>
+                                </a>
+                            </h3>
+                            <div class="progress-visualization">
+                                <div class="progress-header">
+                                    <span class="progress-label">Course Progress</span>
+                                    <span class="progress-percentage" th:id="'progress-percentage-2'">0%</span>
+                                </div>
+                                <div class="progress-bar" th:id="'progress-bar-2'">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course 3 Progress -->
+                        <div class="course-progress" th:if="${user.courseSelected3 != null}">
+                            <h3>
+                                <a style="text-decoration: none" th:href="@{'/course/' + ${selectedCourses[2].id}}">
+                                    <span th:text="${selectedCourses[2].title}">Course Title</span>
+                                    <small class="course-id" th:text="'(ID: ' + ${selectedCourses[2].id} + ')'"></small>
+                                </a>
+                            </h3>
+                            <div class="progress-visualization">
+                                <div class="progress-header">
+                                    <span class="progress-label">Course Progress</span>
+                                    <span class="progress-percentage" th:id="'progress-percentage-3'">0%</span>
+                                </div>
+                                <div class="progress-bar" th:id="'progress-bar-3'">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <div class="row third-row">
+                <div class="dashboard-card recommended-courses-card">
+                    <h2><i class="fas fa-star"></i> All <span style="background: linear-gradient(45deg, #667eea, #764ba2);-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Learn</span> Recommended Courses</h2>
+                    <div class="recommendations-list">
+                        <div th:each="course : ${recommendedCourses}" class="recommendation-item">
+                            <span class="course-name" th:text="${course.title}">Course Name</span>
+                        </div>
+                    </div>
+                    <div class="view-all-recommendations">
+                        <a th:href="@{/course/recommendations}">
+                            <button class="view-all-btn">
+                                <i class="fas fa-th-large"></i> View All Recommendations
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="dashboard-card achievements-card">
+                    <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                    <div class="achievements-list">
+                        <div th:each="course : ${completedCourses}" class="achievement-item">
+                            <i class="fas fa-star"></i>
+                            <div class="achievement-content">
+                                <span class="achievement-title" th:text="|Completed '${course.courseTitle}' Successfully|">Course Name</span>
+                                <span class="achievement-date" th:text="${course.completionDate}">Completion Date</span>
+                            </div>
+                        </div>
+                        <div th:if="${#lists.isEmpty(completedCourses)}" class="no-achievements">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Complete courses to earn achievements!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Popup -->
+    <div id="feedbackPopup" class="feedback-popup">
+        <div class="feedback-popup-content">
+            <h2>Course Feedback</h2>
+            <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1">★</label>
+            </div>
+            <textarea id="feedbackText" placeholder="Share your feedback (optional)" rows="4" style="width: 100%; margin-top: 15px;"></textarea>
+            <div style="margin-top: 15px;">
+                <button id="submitFeedbackBtn" class="btn btn-primary">Submit Feedback</button>
+                <button id="closeFeedbackPopupBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar toggle functionality
+        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+            toggleSidebar();
+        });
+
+        // Add click handler for sidebar content
+        document.getElementById('sidebarContent').addEventListener('click', function(e) {
+            // Check if click was on empty space (the sidebar-content itself)
+            if (e.target === this) {
+                toggleSidebar();
+            }
+        });
+
+        // Function to toggle sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const body = document.body;
+            
+            sidebar.classList.toggle('active');
+            body.classList.toggle('sidebar-closed');
+            
+            // Store sidebar state in localStorage
+            localStorage.setItem('sidebarOpen', sidebar.classList.contains('active'));
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(e) {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            
+            // If sidebar is active and click is outside sidebar and not on toggle button
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                toggleSidebar();
+            }
+        });
+
+        // Check localStorage on page load to restore sidebar state
+        window.addEventListener('load', function() {
+            const sidebarOpen = localStorage.getItem('sidebarOpen') === 'true';
+            if (sidebarOpen) {
+                document.querySelector('.sidebar').classList.add('active');
+            } else {
+                document.body.classList.add('sidebar-closed');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dashboardGrid = document.getElementById('dashboardGrid');
+            const profileSection = document.getElementById('profileSection');
+            const certificatesSection = document.getElementById('certificatesSection');
+            const menuItems = document.querySelectorAll('.sidebar-menu li');
+            
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    const link = this.querySelector('a');
+                    
+                    // Remove active class from all menu items
+                    menuItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    if (link.innerHTML.includes('Profile')) {
+                        e.preventDefault();
+                        profileSection.style.display = 'block';
+                        dashboardGrid.style.display = 'none';
+                        certificatesSection.style.display = 'none';
+                    } else if (link.innerHTML.includes('Dashboard')) {
+                        e.preventDefault();
+                        dashboardGrid.style.display = 'grid';
+                        profileSection.style.display = 'none';
+                        certificatesSection.style.display = 'none';
+                    } else if (link.innerHTML.includes('Certificates')) {
+                        e.preventDefault();
+                        certificatesSection.style.display = 'block';
+                        dashboardGrid.style.display = 'none';
+                        profileSection.style.display = 'none';
+                    }
+                });
+            });
+
+            // Profile dropdown functionality
+            const profileDropdownItems = document.querySelectorAll('.dropdown-item');
+            profileDropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    const linkText = this.textContent.trim();
+                    const dropdownMenu = document.getElementById('profileDropdownMenu');
+                    
+                    // Close dropdown
+                    dropdownMenu.classList.remove('active');
+                    
+                    // Profile button action (same as sidebar profile menu)
+                    if (linkText === 'Edit Profile') {
+                        e.preventDefault();
+                        profileSection.style.display = 'block';
+                        dashboardGrid.style.display = 'none';
+                        certificatesSection.style.display = 'none';
+                        
+                        menuItems.forEach(i => i.classList.remove('active'));
+                        // Find and activate the profile menu item
+                        const profileMenuItem = Array.from(menuItems).find(item => 
+                            item.querySelector('a').innerHTML.includes('Profile')
+                        );
+                        if (profileMenuItem) {
+                            profileMenuItem.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            if (editProfileBtn) {
+                editProfileBtn.addEventListener('click', function() {
+                    // Do nothing or add future edit profile functionality
+                    console.log('Edit Profile clicked');
+                });
+            }
+
+            const profileLinks = document.querySelectorAll('a[onclick="toggleProfileSection()"]');
+            profileLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleProfileSection();
+                });
+            });
+        });
+
+        function showDashboardSection() {
+            const profileSection = document.getElementById('profileSection');
+            const certificatesSection = document.getElementById('certificatesSection');
+            const dashboardGrid = document.getElementById('dashboardGrid');
+            
+            // Show dashboard grid
+            dashboardGrid.style.display = 'grid';
+            
+            // Hide other sections
+            profileSection.style.display = 'none';
+            certificatesSection.style.display = 'none';
+
+            // Update active menu item
+            updateActiveMenuItem('dashboard');
+        }
+
+        // Attach the showDashboardSection to the dashboard link
+        document.querySelector('.sidebar-menu li a[href="#"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            showDashboardSection();
+        });
+
+        function toggleRecommendationsSection() {
+            const recommendationsSection = document.getElementById('recommendationsSection');
+            const profileSection = document.getElementById('profileSection');
+            const dashboardGrid = document.getElementById('dashboardGrid');
+            
+            // Always show recommendations section
+            recommendationsSection.style.display = 'block';
+            
+            // Hide other sections
+            profileSection.style.display = 'none';
+            dashboardGrid.style.display = 'none';
+
+            // Update active menu item
+            updateActiveMenuItem('recommendations');
+        }
+
+        function toggleProfileSection() {
+            const profileSection = document.getElementById('profileSection');
+            const recommendationsSection = document.getElementById('recommendationsSection');
+            const dashboardGrid = document.getElementById('dashboardGrid');
+            
+            // Always show profile section
+            profileSection.style.display = 'block';
+            
+            // Hide other sections
+            recommendationsSection.style.display = 'none';
+            dashboardGrid.style.display = 'none';
+
+            // Update active menu item
+            updateActiveMenuItem('profile');
+        }
+
+        function toggleCertificatesSection() {
+            const certificatesSection = document.getElementById('certificatesSection');
+            const dashboardGrid = document.getElementById('dashboardGrid');
+            const profileSection = document.getElementById('profileSection');
+            
+            certificatesSection.style.display = 'block';
+            dashboardGrid.style.display = 'none';
+            profileSection.style.display = 'none';
+            
+            updateActiveMenuItem('Certificates');
+            loadCertificates();
+        }
+
+        // Function to update active menu item
+        function updateActiveMenuItem(menuItem) {
+            // Remove active class from all menu items
+            document.querySelectorAll('.sidebar-menu li').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Add active class to the selected menu item
+            if (menuItem === 'dashboard') {
+                document.querySelector('.sidebar-menu li a[href="#"]').parentElement.classList.add('active');
+            } else if (menuItem === 'profile') {
+                document.querySelector('.sidebar-menu li a[onclick*="toggleProfileSection"]').parentElement.classList.add('active');
+            } else if (menuItem === 'recommendations') {
+                document.querySelector('.sidebar-menu li a[onclick*="toggleRecommendationsSection"]').parentElement.classList.add('active');
+            } else if (menuItem === 'Certificates') {
+                document.querySelector('.sidebar-menu li a[onclick*="toggleCertificatesSection"]').parentElement.classList.add('active');
+            }
+        }
+
+        // Profile Dropdown functionality
+        const profileTrigger = document.getElementById('profileDropdownTrigger');
+        const dropdownMenu = document.getElementById('profileDropdownMenu');
+
+        profileTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!profileTrigger.contains(e.target)) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdownMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        let courseProgress = {
+            course1: new Set(),
+            course2: new Set(),
+            course3: new Set()
+        };
+
+        // Store selected course IDs
+        const selectedCourseIds = [];
+        document.querySelectorAll('.course-id').forEach(element => {
+            const idText = element.textContent;
+            const courseId = idText.replace('(ID: ', '').replace(')', '');
+            selectedCourseIds.push(courseId);
+        });
+
+        function updateProgress() {
+            console.log('Fetching progress data...');
+            fetch('/api/course/progress/status')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Received progress data:', data);
+                    
+                    // Update progress for each course
+                    selectedCourseIds.forEach((courseId, index) => {
+                        const courseNum = index + 1;
+                        const percentage = data[courseId] || 0;
+                        updateCourseProgress(courseNum, percentage);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Reset progress on error
+                    selectedCourseIds.forEach((_, index) => {
+                        updateCourseProgress(index + 1, 0);
+                    });
+                });
+        }
+
+        function updateCourseProgress(courseNum, percentage) {
+            const progressBar = document.getElementById(`progress-bar-${courseNum}`);
+            const progressPercentage = document.getElementById(`progress-percentage-${courseNum}`);
+            
+            if (progressBar && progressPercentage) {
+                console.log(`Updating course ${courseNum} to ${percentage}%`);
+                
+                const progressFill = progressBar.querySelector('.progress-fill');
+                if (progressFill) {
+                    progressFill.style.width = `${percentage}%`;
+                    console.log(`Set progress bar width to ${percentage}%`);
+                }
+                progressPercentage.textContent = `${percentage}%`;
+            } else {
+                console.log(`Missing elements for course ${courseNum}:`, {
+                    hasProgressBar: !!progressBar,
+                    hasProgressPercentage: !!progressPercentage
+                });
+            }
+        }
+
+        // Update progress periodically
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing progress updates...');
+            console.log('Selected course IDs:', selectedCourseIds);
+            // Initial update
+            updateProgress();
+            // Update every 5 seconds
+            setInterval(updateProgress, 5000);
+        });
+
+        async function updateChartData() {
+            if (!progressChart) return;
+
+            try {
+                const response = await fetch('/dashboard/api/course-progress/stats');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('Chart data:', data);
+
+                // Update existing chart data
+                progressChart.data.datasets[0].data = [
+                    data.completed || 0,
+                    data.ongoing || 0,
+                    data.notStarted || 0
+                ];
+                progressChart.update();
+            } catch (error) {
+                console.error('Error updating chart:', error);
+            }
+        }
+
+        let progressChart = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('progressChart');
+            if (!ctx) {
+                console.error('Canvas element not found!');
+                return;
+            }
+
+            progressChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'Ongoing', 'Not Started'],
+                    datasets: [{
+                        data: [0, 0, 0],
+                        backgroundColor: [
+                            'rgba(102, 187, 106, 0.8)',  // Green for completed
+                            'rgba(102, 126, 234, 0.8)',  // Blue for ongoing
+                            'rgba(229, 231, 235, 0.8)'   // Gray for not started
+                        ],
+                        borderColor: [
+                            'rgb(102, 187, 106)',
+                            'rgb(102, 126, 234)',
+                            'rgb(229, 231, 235)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: 'Poppins',
+                                    size: 12
+                                },
+                                padding: 20
+                            }
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+
+            // Start updating chart data
+            updateChartData();
+            setInterval(updateChartData, 30000);
+        });
+
+        function loadCertificates() {
+            const certificatesList = document.querySelector('.certificates-list');
+            
+            // Get course progress data
+            fetch('/dashboard/api/course-progress')
+                .then(response => response.json())
+                .then(progressList => {
+                    // Clear the list
+                    certificatesList.innerHTML = '';
+                    
+                    // Filter completed courses (100% progress)
+                    const completedCourses = progressList.filter(progress => progress.progressPercentage === 100);
+                    
+                    if (completedCourses.length > 0) {
+                        completedCourses.forEach(course => {
+                            const html = `
+                                <div class="certificate-item">
+                                    <div class="certificate-info">
+                                        <h3>${course.courseTitle || 'Unknown Course'}</h3>
+                                        <span class="certificate-status status-completed">
+                                            Completed on ${new Date(course.lastUpdated).toLocaleDateString()}
+                                        </span>
+                                    </div>
+                                    <div class="certificate-actions">
+                                        <button onclick="generateCertificate('${course.courseId}')" 
+                                                class="certificate-button generate-btn">
+                                            <i class="fas fa-certificate"></i> Download Certificate
+                                        </button>
+                                    </div>
+                                </div>
+                            `;
+                            certificatesList.insertAdjacentHTML('beforeend', html);
+                        });
+                    } else {
+                        certificatesList.innerHTML = '<p>No completed courses yet. Complete a course to earn a certificate!</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading certificates:', error);
+                    certificatesList.innerHTML = '<p class="error-message">Error loading certificates. Please try again later.</p>';
+                });
+        }
+
+        function generateCertificate(courseId) {
+            window.location.href = `/certificates/generate/${encodeURIComponent(courseId)}`;
+        }
+
+        // Modify certificate download links to trigger feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const certificateLinks = document.querySelectorAll('.certificate-item a');
+            console.log('Found certificate links:', certificateLinks.length);
+            
+            certificateLinks.forEach(link => {
+                console.log('Adding event listener to link:', link);
+                console.log('Link href:', link.href);
+                console.log('Course ID:', link.getAttribute('data-course-id'));
+                
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default download
+                    const courseId = this.getAttribute('data-course-id');
+                    console.log('Clicked certificate link for course:', courseId);
+                    
+                    // First, check feedback eligibility
+                    fetch(`/check-feedback-eligibility?courseId=${courseId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Feedback eligibility data:', data);
+                            if (data.canSubmitFeedback) {
+                                // Show feedback popup
+                                document.getElementById('feedbackPopup').style.display = 'block';
+                                document.getElementById('submitFeedbackBtn').dataset.courseId = courseId;
+                                
+                                // Store the original download link to proceed after feedback
+                                document.getElementById('submitFeedbackBtn').dataset.downloadLink = this.href;
+                            } else {
+                                // If no feedback needed, proceed with download
+                                window.location.href = this.href;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error checking feedback eligibility:', error);
+                            // If there's an error, proceed with download
+                            window.location.href = this.href;
+                        });
+                });
+            });
+        });
+
+        document.getElementById('submitFeedbackBtn').addEventListener('click', function() {
+            const courseId = this.dataset.courseId;
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const feedbackText = document.getElementById('feedbackText').value;
+            const downloadLink = this.dataset.downloadLink;
+
+            // Validate rating
+            if (!rating) {
+                alert('Please select a rating.');
+                return;
+            }
+
+            // Prepare payload
+            const payload = {
+                courseId: courseId,
+                rating: rating.value,
+                feedbackText: feedbackText || ''
+            };
+
+            // Submit feedback
+            fetch('/submit-feedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Feedback submitted successfully!');
+                    document.getElementById('feedbackPopup').style.display = 'none';
+                    // Reset form
+                    document.querySelectorAll('input[name="rating"]').forEach(radio => radio.checked = false);
+                    document.getElementById('feedbackText').value = '';
+                    
+                    // Proceed with download
+                    if (downloadLink) {
+                        window.location.href = downloadLink;
+                    }
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting feedback:', error);
+                alert('Error submitting feedback.');
+            });
+        });
+
+        document.getElementById('closeFeedbackPopupBtn').addEventListener('click', function() {
+            document.getElementById('feedbackPopup').style.display = 'none';
+            // Reset form
+            document.querySelectorAll('input[name="rating"]').forEach(radio => radio.checked = false);
+            document.getElementById('feedbackText').value = '';
+        });
+
+        // Function to load course recommendations
+        async function loadRecommendedCourses() {
+            const recommendedCoursesContainer = document.querySelector('.recommended-courses-list');
+            try {
+                const userId = document.getElementById('current-user-id').value;
+                console.log('Loading recommendations for user:', userId);
+                
+                // Add timestamp to prevent caching
+                const timestamp = new Date().getTime();
+                const response = await fetch(`/api/courses/suggestions/${userId}?t=${timestamp}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                const recommendations = data.recommendations || [];
+                
+                if (recommendations.length === 0) {
+                    recommendedCoursesContainer.innerHTML = `
+                        <div class="no-recommendations">
+                            <p>No course recommendations available.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Filter out already selected courses
+                const selectedCourseIds = Array.from(document.querySelectorAll('.course-item:not(.empty-course)'))
+                    .map(item => item.querySelector('.course-status span').textContent.match(/\d+/)[0]);
+                
+                const availableRecommendations = recommendations.filter(course => 
+                    !selectedCourseIds.includes(course.id.toString())
+                );
+                
+                if (availableRecommendations.length === 0) {
+                    recommendedCoursesContainer.innerHTML = `
+                        <div class="no-recommendations">
+                            <p>You've already selected all recommended courses.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                recommendedCoursesContainer.innerHTML = availableRecommendations
+                    .map(course => `
+                        <div class="recommended-course">
+                            <h3>${course.title}</h3>
+                            <div class="course-status">
+                                <span>Course ID: ${course.id}</span>
+                            </div>
+                            <p class="course-description">${course.description}</p>
+                            <div class="confidence-score">
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: ${course.confidence_score}%"></div>
+                                </div>
+                                <span>${course.confidence_score}% Match</span>
+                            </div>
+                            <a href="/courses/select/${course.id}" class="select-course-btn">
+                                <i class="fas fa-plus"></i> Select Course
+                            </a>
+                        </div>
+                    `)
+                    .join('');
+                
+            } catch (error) {
+                console.error('Error loading recommendations:', error);
+                recommendedCoursesContainer.innerHTML = `
+                    <div class="error-message">
+                        <p>Failed to load course recommendations.</p>
+                        <button onclick="loadRecommendedCourses()">Retry</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Load recommendations when recommendations section is shown
+        document.querySelector('.recommendations-link').addEventListener('click', function() {
+            loadRecommendedCourses();
+        });
+
+        // Function to load progress stats
+        function loadProgressStats() {
+            console.log('Fetching progress stats...');
+            fetch('/api/progress-stats')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(stats => {
+                    console.log('Received stats:', stats);
+                    document.getElementById('completedCoursesCount').textContent = stats.completedCourses || 0;
+                    document.getElementById('inProgressCoursesCount').textContent = stats.inProgressCourses || 0;
+                })
+                .catch(error => {
+                    console.error('Error loading progress stats:', error);
+                });
+        }
+
+        // Load progress stats when page loads and periodically
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing progress stats...');
+            // Initial load
+            loadProgressStats();
+            
+            // Refresh every 30 seconds
+            setInterval(loadProgressStats, 30000);
+            
+            // Call other initialization functions
+            updateProgress();
+            loadCertificates();
+        });
+        
+        // Feedback Functionality
+        function showFeedbackPopup(courseId) {
+            // Check feedback eligibility first
+            fetch(`/check-feedback-eligibility?courseId=${courseId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.canSubmitFeedback) {
+                        document.getElementById('feedbackPopup').style.display = 'block';
+                        // Store current course ID for submission
+                        document.getElementById('submitFeedbackBtn').dataset.courseId = courseId;
+                        
+                        // Store the original download link to proceed after feedback
+                        document.getElementById('submitFeedbackBtn').dataset.downloadLink = this.href;
+                    } else {
+                        alert('You have already submitted feedback for this course.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking feedback eligibility:', error);
+                    alert('Error checking feedback eligibility.');
+                });
+        }
+    </script>
+	<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+	<script src="https://files.bpcontent.cloud/2024/12/31/11/20241231114617-GCZ46LUI.js"></script>
+</body>
+</html>

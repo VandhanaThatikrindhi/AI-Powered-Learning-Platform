@@ -1,0 +1,667 @@
+[2024-12-31T10:08:01.8235395] Starting course recommendation fetch for user 1
+[2024-12-31T10:08:01.8235395] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2024-12-31T10:08:16.4477878] Fetched 3 course recommendations for user 1. Course IDs: [90, 91, 92]
+[2024-12-31T10:08:16.4535812] Successfully saved course recommendations for user 1 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2024-12-31T10:08:16.4545874] Completed recommendation fetch process for user 1
+[2024-12-31T10:09:13.2591993] Starting course recommendation fetch for user 1
+[2024-12-31T10:09:13.2644336] Existing recommendations file found for user 1. Skipping fetch.
+[2024-12-31T10:09:13.2644336] Completed recommendation fetch process for user 1
+[2024-12-31T10:13:48.1174311] Starting course recommendation fetch for user 2
+[2024-12-31T10:13:48.1174311] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2024-12-31T10:14:01.4514915] Fetched 4 course recommendations for user 2. Course IDs: [93, 94, 95, 96]
+[2024-12-31T10:14:01.4576184] Successfully saved course recommendations for user 2 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_2.json
+[2024-12-31T10:14:01.4602158] Completed recommendation fetch process for user 2
+[2024-12-31T10:27:02.889026] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:02.8901437] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2024-12-31T10:27:20.5707554] Fetched 3 course recommendations for user 3. Course IDs: [97, 98, 99]
+[2024-12-31T10:27:20.5800331] Successfully saved course recommendations for user 3 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_3.json
+[2024-12-31T10:27:20.5829379] Triggering page reload for user 3
+[2024-12-31T10:27:20.5835432] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:20.7266387] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:20.7284141] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:20.7284141] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:57.2030683] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:57.2051123] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:57.2061184] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:58.1456858] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:58.1456858] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:58.1490334] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:58.8127854] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:58.8127854] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:58.8127854] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:59.0049906] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:59.007788] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:59.007788] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:59.1906655] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:59.1918413] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:59.1929126] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:59.3741308] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:59.3746672] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:59.3752071] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:59.5467611] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:59.554696] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:59.5559949] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:59.7079166] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:59.7079166] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:59.7079166] Completed recommendation fetch process for user 3
+[2024-12-31T10:27:59.8953314] Starting course recommendation fetch for user 3
+[2024-12-31T10:27:59.8953314] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:27:59.8953314] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:00.0799137] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:00.0799137] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:00.0825604] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:00.2615437] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:00.2615437] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:00.2615437] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:00.4312828] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:00.4312828] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:00.4333598] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:00.6079856] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:00.6152392] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:00.6152392] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:00.7957776] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:00.7957776] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:00.7957776] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:00.9871741] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:00.9871741] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:00.9871741] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:01.1550923] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:01.1550923] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:01.1550923] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:01.3420508] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:01.3431272] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:01.3431272] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:01.5050199] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:01.5050199] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:01.5050199] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:01.6977205] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:01.6997281] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:01.6997281] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:01.9211845] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:01.9233443] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:01.9249386] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:08.5592257] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:08.5592257] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:08.5592257] Completed recommendation fetch process for user 3
+[2024-12-31T10:28:58.8200217] Starting course recommendation fetch for user 3
+[2024-12-31T10:28:58.8200217] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:28:58.8200217] Completed recommendation fetch process for user 3
+[2024-12-31T10:29:47.5248052] Starting course recommendation fetch for user 2
+[2024-12-31T10:29:47.5248052] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T10:29:47.5299361] Completed recommendation fetch process for user 2
+[2024-12-31T10:30:11.5583174] Starting course recommendation fetch for user 3
+[2024-12-31T10:30:11.5704331] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T10:30:11.5724607] Completed recommendation fetch process for user 3
+[2024-12-31T10:51:39.6100511] Starting course recommendation fetch for user 2
+[2024-12-31T10:51:39.6140138] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T10:51:39.6160218] Completed recommendation fetch process for user 2
+[2024-12-31T10:55:05.5048686] Starting course recommendation fetch for user 2
+[2024-12-31T10:55:05.5087758] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T10:55:05.5087758] Completed recommendation fetch process for user 2
+[2024-12-31T11:02:10.9903596] Starting course recommendation fetch for user 2
+[2024-12-31T11:02:10.9929894] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T11:02:10.9940137] Completed recommendation fetch process for user 2
+[2024-12-31T11:24:02.179631] Starting course recommendation fetch for user 2
+[2024-12-31T11:24:02.179631] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T11:24:02.179631] Completed recommendation fetch process for user 2
+[2024-12-31T11:45:51.7547182] Starting course recommendation fetch for user 2
+[2024-12-31T11:45:51.7579456] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T11:45:51.7579456] Completed recommendation fetch process for user 2
+[2024-12-31T11:46:22.4730816] Starting course recommendation fetch for user 2
+[2024-12-31T11:46:22.4730816] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T11:46:22.4730816] Completed recommendation fetch process for user 2
+[2024-12-31T11:50:25.8719409] Starting course recommendation fetch for user 2
+[2024-12-31T11:50:25.8730754] Existing recommendations file found for user 2. Skipping fetch.
+[2024-12-31T11:50:25.8730754] Completed recommendation fetch process for user 2
+[2024-12-31T11:59:45.8297415] Starting course recommendation fetch for user 3
+[2024-12-31T11:59:45.8360154] Existing recommendations file found for user 3. Skipping fetch.
+[2024-12-31T11:59:45.8375509] Completed recommendation fetch process for user 3
+[2024-12-31T12:10:17.2078254] Starting course recommendation fetch for user 1
+[2024-12-31T12:10:17.2098859] Existing recommendations file found for user 1. Skipping fetch.
+[2024-12-31T12:10:17.2098859] Completed recommendation fetch process for user 1
+[2024-12-31T12:29:25.2731055] Starting course recommendation fetch for user 4
+[2024-12-31T12:29:25.2770817] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/4
+[2024-12-31T12:29:48.2260981] Fetched 5 course recommendations for user 4. Course IDs: [100, 101, 102, 103, 104]
+[2024-12-31T12:29:48.2313221] Successfully saved course recommendations for user 4 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\target\classes\static\data\data\suggest_courses_4.json
+[2024-12-31T12:29:48.2323224] Completed recommendation fetch process for user 4
+[2024-12-31T12:50:10.158221] Starting course recommendation fetch for user 5
+[2024-12-31T12:50:10.158221] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/5
+[2024-12-31T12:50:27.3712201] Fetched 3 course recommendations for user 5. Course IDs: [105, 106, 107]
+[2024-12-31T12:50:27.3743147] Successfully saved course recommendations for user 5 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_5.json
+[2024-12-31T12:50:27.3783152] Completed recommendation fetch process for user 5
+[2024-12-31T12:50:35.9620183] Starting course recommendation fetch for user 5
+[2024-12-31T12:50:35.9620183] Existing recommendations file found for user 5. Skipping fetch.
+[2024-12-31T12:50:35.9620183] Completed recommendation fetch process for user 5
+[2024-12-31T14:05:18.3322295] Starting course recommendation fetch for user 6
+[2024-12-31T14:05:18.3332356] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/6
+[2024-12-31T14:05:34.6373617] Fetched 2 course recommendations for user 6. Course IDs: [108, 109]
+[2024-12-31T14:05:34.6428693] Successfully saved course recommendations for user 6 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_6.json
+[2024-12-31T14:05:34.6438783] Completed recommendation fetch process for user 6
+[2024-12-31T14:36:19.5579984] Starting course recommendation fetch for user 7
+[2024-12-31T14:36:19.5600054] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/7
+[2024-12-31T14:36:55.4616636] Fetched 4 course recommendations for user 7. Course IDs: [110, 111, 112, 113]
+[2024-12-31T14:36:55.4715991] Successfully saved course recommendations for user 7 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_7.json
+[2024-12-31T14:36:55.4736744] Completed recommendation fetch process for user 7
+[2024-12-31T14:55:37.0732872] Starting course recommendation fetch for user 8
+[2024-12-31T14:55:37.0768029] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/8
+[2024-12-31T14:55:54.835387] Fetched 3 course recommendations for user 8. Course IDs: [114, 115, 116]
+[2024-12-31T14:55:54.8386391] Successfully saved course recommendations for user 8 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_8.json
+[2024-12-31T14:55:54.8386391] Completed recommendation fetch process for user 8
+[2024-12-31T15:08:51.7086776] Starting course recommendation fetch for user 9
+[2024-12-31T15:08:51.7112761] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/9
+[2024-12-31T15:09:16.9635963] Fetched 5 course recommendations for user 9. Course IDs: [117, 118, 119, 120, 121]
+[2024-12-31T15:09:16.9705106] Successfully saved course recommendations for user 9 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_9.json
+[2024-12-31T15:09:16.9705106] Completed recommendation fetch process for user 9
+[2024-12-31T15:20:30.1967991] Starting course recommendation fetch for user 9
+[2024-12-31T15:20:30.1967991] Existing recommendations file found for user 9. Skipping fetch.
+[2024-12-31T15:20:30.2007763] Completed recommendation fetch process for user 9
+[2024-12-31T15:32:10.8632042] Starting course recommendation fetch for user 9
+[2024-12-31T15:32:10.8632042] Existing recommendations file found for user 9. Skipping fetch.
+[2024-12-31T15:32:10.8632042] Completed recommendation fetch process for user 9
+[2024-12-31T18:14:03.2886772] Starting course recommendation fetch for user 10
+[2024-12-31T18:14:03.2917562] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/10
+[2024-12-31T18:14:20.6864216] Fetched 4 course recommendations for user 10. Course IDs: [122, 123, 124, 125]
+[2024-12-31T18:14:20.6923424] Successfully saved course recommendations for user 10 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_10.json
+[2024-12-31T18:14:20.6950315] Completed recommendation fetch process for user 10
+[2024-12-31T18:27:35.4763024] Starting course recommendation fetch for user 10
+[2024-12-31T18:27:35.4763024] Existing recommendations file found for user 10. Skipping fetch.
+[2024-12-31T18:27:35.4810484] Completed recommendation fetch process for user 10
+[2024-12-31T18:27:35.5001831] Starting course recommendation fetch for user 10
+[2024-12-31T18:27:35.5023279] Existing recommendations file found for user 10. Skipping fetch.
+[2024-12-31T18:27:35.5029041] Completed recommendation fetch process for user 10
+[2024-12-31T18:47:19.6182579] Starting course recommendation fetch for user 10
+[2024-12-31T18:47:19.6224604] Existing recommendations file found for user 10. Skipping fetch.
+[2024-12-31T18:47:19.6224604] Completed recommendation fetch process for user 10
+[2024-12-31T18:48:09.5717148] Starting course recommendation fetch for user 10
+[2024-12-31T18:48:09.5717148] Existing recommendations file found for user 10. Skipping fetch.
+[2024-12-31T18:48:09.5717148] Completed recommendation fetch process for user 10
+[2024-12-31T18:49:54.9495365] Starting course recommendation fetch for user 10
+[2024-12-31T18:49:54.9505558] Existing recommendations file found for user 10. Skipping fetch.
+[2024-12-31T18:49:54.9505558] Completed recommendation fetch process for user 10
+[2024-12-31T20:38:39.5239874] Starting course recommendation fetch for user 12
+[2024-12-31T20:38:39.5294832] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/12
+[2024-12-31T20:38:39.5893362] Error fetching or saving course recommendations for user 12: I/O error on GET request for "http://localhost:8000/suggest_courses/12": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2024-12-31T20:38:39.6076261] Completed recommendation fetch process for user 12
+[2025-01-01T11:22:40.2642366] Starting course recommendation fetch for user 13
+[2025-01-01T11:22:40.2673466] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/13
+[2025-01-01T11:22:54.9592929] Fetched 4 course recommendations for user 13. Course IDs: [126, 127, 128, 129]
+[2025-01-01T11:22:54.9672763] Successfully saved course recommendations for user 13 to C:\Users\mdfar\OneDrive\Desktop\finalupdated1\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_13.json
+[2025-01-01T11:22:54.9672763] Completed recommendation fetch process for user 13
+[2025-01-01T11:28:08.8601458] Starting course recommendation fetch for user 13
+[2025-01-01T11:28:08.8642661] Existing recommendations file found for user 13. Skipping fetch.
+[2025-01-01T11:28:08.8642661] Completed recommendation fetch process for user 13
+[2025-01-01T11:42:20.869053] Starting course recommendation fetch for user 13
+[2025-01-01T11:42:20.869053] Existing recommendations file found for user 13. Skipping fetch.
+[2025-01-01T11:42:20.8700529] Completed recommendation fetch process for user 13
+[2025-01-01T11:44:15.0172775] Starting course recommendation fetch for user 13
+[2025-01-01T11:44:15.0182986] Existing recommendations file found for user 13. Skipping fetch.
+[2025-01-01T11:44:15.0182986] Completed recommendation fetch process for user 13
+[2025-01-02T21:06:50.2553882] Starting course recommendation fetch for user 1
+[2025-01-02T21:06:50.2553882] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-01-02T21:07:01.8422521] Fetched 5 course recommendations for user 1. Course IDs: [153, 154, 155, 156, 157]
+[2025-01-02T21:07:01.8422521] Successfully saved course recommendations for user 1 to C:\Users\mdfar\OneDrive\Desktop\contentcheckandget2\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2025-01-02T21:07:01.8422521] Completed recommendation fetch process for user 1
+[2025-01-02T21:13:21.5023573] Starting course recommendation fetch for user 1
+[2025-01-02T21:13:21.5058545] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-01-02T21:13:32.5870213] Fetched 3 course recommendations for user 1. Course IDs: [158, 159, 160]
+[2025-01-02T21:13:32.5931483] Successfully saved course recommendations for user 1 to C:\Users\mdfar\OneDrive\Desktop\contentcheckandget2\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2025-01-02T21:13:32.5968] Completed recommendation fetch process for user 1
+[2025-01-02T21:13:32.6150935] Starting course recommendation fetch for user 1
+[2025-01-02T21:13:32.6150935] Existing recommendations file found for user 1. Skipping fetch.
+[2025-01-02T21:13:32.6150935] Completed recommendation fetch process for user 1
+[2025-01-02T21:30:01.7846869] Starting course recommendation fetch for user 1
+[2025-01-02T21:30:01.787642] Existing recommendations file found for user 1. Skipping fetch.
+[2025-01-02T21:30:01.7900286] Completed recommendation fetch process for user 1
+[2025-01-02T21:31:30.1217121] Starting course recommendation fetch for user 2
+[2025-01-02T21:31:30.1232243] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-01-02T21:31:43.6763377] Fetched 2 course recommendations for user 2. Course IDs: [161, 162]
+[2025-01-02T21:31:43.6836926] Successfully saved course recommendations for user 2 to C:\Users\mdfar\OneDrive\Desktop\contentcheckandget2\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_2.json
+[2025-01-02T21:31:43.6846839] Completed recommendation fetch process for user 2
+[2025-01-04T10:29:20.7480945] Starting course recommendation fetch for user 1
+[2025-01-04T10:29:20.7520971] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-01-04T10:29:39.0735112] Fetched 4 course recommendations for user 1. Course IDs: [163, 164, 165, 166]
+[2025-01-04T10:29:39.0786433] Successfully saved course recommendations for user 1 to C:\Users\mdfar\OneDrive\Desktop\contentcheckandget2\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2025-01-04T10:29:39.0796414] Completed recommendation fetch process for user 1
+[2025-01-04T10:29:39.1085542] Starting course recommendation fetch for user 1
+[2025-01-04T10:29:39.1095521] Existing recommendations file found for user 1. Skipping fetch.
+[2025-01-04T10:29:39.1106242] Completed recommendation fetch process for user 1
+[2025-01-04T10:32:08.0902585] Starting course recommendation fetch for user 1
+[2025-01-04T10:32:08.0942717] Existing recommendations file found for user 1. Skipping fetch.
+[2025-01-04T10:32:08.0962812] Completed recommendation fetch process for user 1
+[2025-01-04T11:09:32.0725719] Starting course recommendation fetch for user 3
+[2025-01-04T11:09:32.0725719] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-01-04T11:09:48.8627741] Fetched 5 course recommendations for user 3. Course IDs: [167, 168, 169, 170, 171]
+[2025-01-04T11:09:48.8627741] Successfully saved course recommendations for user 3 to C:\Users\mdfar\OneDrive\Desktop\contentcheckandget2\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_3.json
+[2025-01-04T11:09:48.8627741] Completed recommendation fetch process for user 3
+[2025-01-04T12:28:36.045052] Starting course recommendation fetch for user 1
+[2025-01-04T12:28:36.0504633] Existing recommendations file found for user 1. Skipping fetch.
+[2025-01-04T12:28:36.0504633] Completed recommendation fetch process for user 1
+[2025-01-04T12:28:36.0608409] Starting course recommendation fetch for user 1
+[2025-01-04T12:28:36.0613461] Existing recommendations file found for user 1. Skipping fetch.
+[2025-01-04T12:28:36.0613461] Completed recommendation fetch process for user 1
+[2025-02-11T18:10:22.3841819] Starting course recommendation fetch for user 1
+[2025-02-11T18:10:22.3890153] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-11T18:10:22.4485871] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:10:22.4601531] Completed recommendation fetch process for user 1
+[2025-02-11T18:14:01.7469859] Starting course recommendation fetch for user 1
+[2025-02-11T18:14:01.7490058] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-11T18:14:01.752595] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:14:01.7561171] Completed recommendation fetch process for user 1
+[2025-02-11T18:15:06.5954751] Starting course recommendation fetch for user 2
+[2025-02-11T18:15:06.5974826] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-11T18:15:06.6006713] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:15:06.6031917] Completed recommendation fetch process for user 2
+[2025-02-11T18:15:40.7516537] Starting course recommendation fetch for user 2
+[2025-02-11T18:15:40.7526545] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-11T18:15:40.7546522] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:15:40.75774] Completed recommendation fetch process for user 2
+[2025-02-11T18:19:31.666459] Starting course recommendation fetch for user 3
+[2025-02-11T18:19:31.6679671] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-11T18:19:31.6744969] Error fetching or saving course recommendations for user 3: I/O error on GET request for "http://localhost:8000/suggest_courses/3": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:19:31.6815716] Completed recommendation fetch process for user 3
+[2025-02-11T18:19:44.9725205] Starting course recommendation fetch for user 3
+[2025-02-11T18:19:44.9725205] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-11T18:19:44.9745324] Error fetching or saving course recommendations for user 3: I/O error on GET request for "http://localhost:8000/suggest_courses/3": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:19:44.9780411] Completed recommendation fetch process for user 3
+[2025-02-11T18:19:45.6743167] Starting course recommendation fetch for user 3
+[2025-02-11T18:19:45.67534] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-11T18:19:45.6763423] Error fetching or saving course recommendations for user 3: I/O error on GET request for "http://localhost:8000/suggest_courses/3": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-11T18:19:45.679494] Completed recommendation fetch process for user 3
+[2025-02-13T11:24:17.1800376] Starting course recommendation fetch for user 1
+[2025-02-13T11:24:17.184372] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-13T11:24:17.2419284] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:24:17.2532337] Completed recommendation fetch process for user 1
+[2025-02-13T11:24:17.2823611] Starting course recommendation fetch for user 1
+[2025-02-13T11:24:17.283374] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-13T11:24:17.2845971] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:24:17.2871278] Completed recommendation fetch process for user 1
+[2025-02-13T11:24:23.4267128] Starting course recommendation fetch for user 2
+[2025-02-13T11:24:23.4280018] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T11:24:23.4307448] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:24:23.4322461] Completed recommendation fetch process for user 2
+[2025-02-13T11:24:23.4558092] Starting course recommendation fetch for user 2
+[2025-02-13T11:24:23.4568045] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T11:24:23.4600291] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:24:23.4641147] Completed recommendation fetch process for user 2
+[2025-02-13T11:24:28.0177026] Starting course recommendation fetch for user 3
+[2025-02-13T11:24:28.018214] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-13T11:24:28.020739] Error fetching or saving course recommendations for user 3: I/O error on GET request for "http://localhost:8000/suggest_courses/3": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:24:28.022757] Completed recommendation fetch process for user 3
+[2025-02-13T11:24:28.0434934] Starting course recommendation fetch for user 3
+[2025-02-13T11:24:28.0444885] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-13T11:24:28.0458543] Error fetching or saving course recommendations for user 3: I/O error on GET request for "http://localhost:8000/suggest_courses/3": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:24:28.0468626] Completed recommendation fetch process for user 3
+[2025-02-13T11:49:22.8337676] Starting course recommendation fetch for user 4
+[2025-02-13T11:49:22.8373029] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/4
+[2025-02-13T11:49:22.850406] Error fetching or saving course recommendations for user 4: I/O error on GET request for "http://localhost:8000/suggest_courses/4": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T11:49:22.8564375] Completed recommendation fetch process for user 4
+[2025-02-13T12:12:36.9286815] Starting course recommendation fetch for user 5
+[2025-02-13T12:12:36.9318065] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/5
+[2025-02-13T12:12:36.9369561] Error fetching or saving course recommendations for user 5: I/O error on GET request for "http://localhost:8000/suggest_courses/5": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:12:36.942856] Completed recommendation fetch process for user 5
+[2025-02-13T12:24:23.9152231] Starting course recommendation fetch for user 1
+[2025-02-13T12:24:23.9226059] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-13T12:24:24.0191234] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:24:24.0412582] Completed recommendation fetch process for user 1
+[2025-02-13T12:31:58.6115945] Starting course recommendation fetch for user 2
+[2025-02-13T12:31:58.6151268] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:31:58.6252734] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:31:58.6339418] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:22.9926248] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:22.9926248] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:22.995647] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:22.9976524] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:23.7109659] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:23.7119765] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:23.7134844] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:23.7165666] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:25.447218] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:25.4497283] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:25.4583087] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:25.4698222] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:26.2733655] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:26.2743639] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:26.2763616] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:26.2778711] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:26.8188537] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:26.8198618] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:26.8228596] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:26.8268601] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:28.261547] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:28.261547] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:28.2664049] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:28.2694818] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:28.4322513] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:28.4322513] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:28.4348552] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:28.4373656] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:29.4624101] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:29.4639179] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:29.4701873] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:29.4737038] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:29.6513431] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:29.6523524] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:29.6538566] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:29.6563651] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:30.0480475] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:30.0495562] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:30.0516037] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:30.0526104] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:30.8766126] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:30.8781208] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:30.8821536] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:30.8847872] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:31.0909423] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:31.092456] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:31.0944571] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:31.0974835] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:57.2802612] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:57.2840428] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:57.290099] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:57.2958594] Completed recommendation fetch process for user 2
+[2025-02-13T12:32:57.332376] Starting course recommendation fetch for user 2
+[2025-02-13T12:32:57.3333864] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:32:57.3360418] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:32:57.3410498] Completed recommendation fetch process for user 2
+[2025-02-13T12:35:58.0445022] Starting course recommendation fetch for user 3
+[2025-02-13T12:35:58.0455264] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-13T12:35:58.0526782] Error fetching or saving course recommendations for user 3: I/O error on GET request for "http://localhost:8000/suggest_courses/3": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-02-13T12:35:58.0577513] Completed recommendation fetch process for user 3
+[2025-02-13T12:42:28.7500014] Starting course recommendation fetch for user 1
+[2025-02-13T12:42:28.7712515] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-13T12:42:59.2917716] Fetched 3 course recommendations for user 1. Course IDs: [47, 48, 49]
+[2025-02-13T12:42:59.2958076] Successfully saved course recommendations for user 1 to C:\Users\mdfar\OneDrive\Desktop\withfeedback\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2025-02-13T12:42:59.2958076] Completed recommendation fetch process for user 1
+[2025-02-13T12:43:07.6701879] Starting course recommendation fetch for user 1
+[2025-02-13T12:43:07.6721924] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T12:43:07.6721924] Completed recommendation fetch process for user 1
+[2025-02-13T12:46:33.145709] Starting course recommendation fetch for user 2
+[2025-02-13T12:46:33.1549675] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T12:46:37.3692941] Fetched 3 course recommendations for user 2. Course IDs: [50, 51, 52]
+[2025-02-13T12:46:37.3800245] Successfully saved course recommendations for user 2 to C:\Users\mdfar\OneDrive\Desktop\withfeedback\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_2.json
+[2025-02-13T12:46:37.381667] Completed recommendation fetch process for user 2
+[2025-02-13T12:49:01.5086198] Starting course recommendation fetch for user 2
+[2025-02-13T12:49:01.5096187] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:49:01.5106228] Completed recommendation fetch process for user 2
+[2025-02-13T12:51:07.7618009] Starting course recommendation fetch for user 2
+[2025-02-13T12:51:07.7618009] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:51:07.7618009] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:35.2906205] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:35.2906205] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:35.2916211] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:35.7761145] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:35.7771135] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:35.7771135] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:36.0945158] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:36.0956204] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:36.0970055] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:36.3259788] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:36.3259788] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:36.3259788] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:36.5427216] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:36.54423] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:36.5452438] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:36.742001] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:36.7430015] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:36.7430015] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:36.9760859] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:36.97866] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:36.9799497] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:37.1805418] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:37.1805418] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:37.1820497] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:37.3777256] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:37.3793389] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:37.3793389] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:37.5926648] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:37.5941739] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:37.5941739] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:37.8409611] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:37.8419619] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:37.8429603] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:38.0346753] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:38.0356786] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:38.0371284] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:38.2690145] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:38.2700156] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:38.2710149] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:38.5029969] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:38.5035191] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:38.5035191] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:38.7240493] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:38.724554] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:38.724554] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:40.1113236] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:40.1113236] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:40.1123202] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:40.4849332] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:40.4859446] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:40.4869555] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:40.899513] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:40.9005225] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:40.9020279] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:41.1336586] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:41.1353747] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:41.1358952] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:41.3403981] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:41.3414004] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:41.3414004] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:41.5295733] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:41.5295733] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:41.5305839] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:41.7364793] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:41.7364793] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:41.7374877] Completed recommendation fetch process for user 2
+[2025-02-13T12:52:41.9270921] Starting course recommendation fetch for user 2
+[2025-02-13T12:52:41.9280913] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:52:41.9280913] Completed recommendation fetch process for user 2
+[2025-02-13T12:55:13.6893817] Starting course recommendation fetch for user 2
+[2025-02-13T12:55:13.6903816] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:55:13.6903816] Completed recommendation fetch process for user 2
+[2025-02-13T12:58:04.3846212] Starting course recommendation fetch for user 2
+[2025-02-13T12:58:04.3860953] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:58:04.3871085] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:18.088219] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:18.0902174] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:18.0921285] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:24.4020195] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:24.4035323] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:24.4035323] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:30.837034] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:30.8385511] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:30.8395653] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:30.8771791] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:30.8786813] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:30.8805889] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:38.2241845] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:38.2261817] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:38.2261817] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:50.4142364] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:50.4142364] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:50.4157548] Completed recommendation fetch process for user 2
+[2025-02-13T12:59:50.438233] Starting course recommendation fetch for user 2
+[2025-02-13T12:59:50.4402311] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T12:59:50.4402311] Completed recommendation fetch process for user 2
+[2025-02-13T13:01:23.5026917] Starting course recommendation fetch for user 2
+[2025-02-13T13:01:23.5031959] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:01:23.5042095] Completed recommendation fetch process for user 2
+[2025-02-13T13:01:31.5399733] Starting course recommendation fetch for user 2
+[2025-02-13T13:01:31.5415417] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:01:31.542759] Completed recommendation fetch process for user 2
+[2025-02-13T13:01:32.3565073] Starting course recommendation fetch for user 2
+[2025-02-13T13:01:32.3575292] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:01:32.3575292] Completed recommendation fetch process for user 2
+[2025-02-13T13:01:35.3427662] Starting course recommendation fetch for user 2
+[2025-02-13T13:01:35.3442925] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:01:35.3468551] Completed recommendation fetch process for user 2
+[2025-02-13T13:01:42.3282216] Starting course recommendation fetch for user 2
+[2025-02-13T13:01:42.3295802] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:01:42.3302453] Completed recommendation fetch process for user 2
+[2025-02-13T13:06:24.0028636] Starting course recommendation fetch for user 2
+[2025-02-13T13:06:24.0062572] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:06:24.0077802] Completed recommendation fetch process for user 2
+[2025-02-13T13:07:49.811576] Starting course recommendation fetch for user 2
+[2025-02-13T13:07:49.8150301] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:07:49.8179506] Completed recommendation fetch process for user 2
+[2025-02-13T13:08:17.4959258] Starting course recommendation fetch for user 2
+[2025-02-13T13:08:17.4980931] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:08:17.500332] Completed recommendation fetch process for user 2
+[2025-02-13T13:08:17.5459355] Starting course recommendation fetch for user 2
+[2025-02-13T13:08:17.5482226] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:08:17.5502459] Completed recommendation fetch process for user 2
+[2025-02-13T13:08:29.4069438] Starting course recommendation fetch for user 2
+[2025-02-13T13:08:29.4092859] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:08:29.4113059] Completed recommendation fetch process for user 2
+[2025-02-13T13:08:29.445535] Starting course recommendation fetch for user 2
+[2025-02-13T13:08:29.4472543] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:08:29.4477845] Completed recommendation fetch process for user 2
+[2025-02-13T13:11:36.4994177] Starting course recommendation fetch for user 1
+[2025-02-13T13:11:36.5034824] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-02-13T13:11:42.1223731] Fetched 4 course recommendations for user 1. Course IDs: [53, 54, 55, 56]
+[2025-02-13T13:11:42.1282532] Successfully saved course recommendations for user 1 to C:\Users\mdfar\OneDrive\Desktop\withfeedback\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2025-02-13T13:11:42.1298445] Completed recommendation fetch process for user 1
+[2025-02-13T13:13:24.0177113] Starting course recommendation fetch for user 1
+[2025-02-13T13:13:24.0192198] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:13:24.0212393] Completed recommendation fetch process for user 1
+[2025-02-13T13:15:58.4412381] Starting course recommendation fetch for user 1
+[2025-02-13T13:15:58.4432394] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:15:58.4456729] Completed recommendation fetch process for user 1
+[2025-02-13T13:16:24.8161808] Starting course recommendation fetch for user 1
+[2025-02-13T13:16:24.8183279] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:16:24.8193428] Completed recommendation fetch process for user 1
+[2025-02-13T13:17:40.1982079] Starting course recommendation fetch for user 1
+[2025-02-13T13:17:40.1998409] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:17:40.2009402] Completed recommendation fetch process for user 1
+[2025-02-13T13:17:55.3952209] Starting course recommendation fetch for user 1
+[2025-02-13T13:17:55.396802] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:17:55.396802] Completed recommendation fetch process for user 1
+[2025-02-13T13:18:13.5919505] Starting course recommendation fetch for user 1
+[2025-02-13T13:18:13.5949648] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:18:13.5961333] Completed recommendation fetch process for user 1
+[2025-02-13T13:19:03.5668465] Starting course recommendation fetch for user 1
+[2025-02-13T13:19:03.5694642] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:19:03.5715341] Completed recommendation fetch process for user 1
+[2025-02-13T13:19:55.7066831] Starting course recommendation fetch for user 1
+[2025-02-13T13:19:55.7091392] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:19:55.7102378] Completed recommendation fetch process for user 1
+[2025-02-13T13:20:03.042971] Starting course recommendation fetch for user 1
+[2025-02-13T13:20:03.0444881] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:20:03.0460213] Completed recommendation fetch process for user 1
+[2025-02-13T13:20:41.144763] Starting course recommendation fetch for user 1
+[2025-02-13T13:20:41.147545] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:20:41.1503382] Completed recommendation fetch process for user 1
+[2025-02-13T13:21:48.7215779] Starting course recommendation fetch for user 1
+[2025-02-13T13:21:48.7414494] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:21:48.7448272] Completed recommendation fetch process for user 1
+[2025-02-13T13:23:31.4954582] Starting course recommendation fetch for user 1
+[2025-02-13T13:23:31.498543] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:23:31.500078] Completed recommendation fetch process for user 1
+[2025-02-13T13:24:26.2652007] Starting course recommendation fetch for user 1
+[2025-02-13T13:24:26.2686766] Existing recommendations file found for user 1. Skipping fetch.
+[2025-02-13T13:24:26.270251] Completed recommendation fetch process for user 1
+[2025-02-13T13:30:44.0352864] Starting course recommendation fetch for user 2
+[2025-02-13T13:30:44.0385069] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-02-13T13:30:49.9623149] Fetched 5 course recommendations for user 2. Course IDs: [57, 58, 59, 60, 61]
+[2025-02-13T13:30:49.9680192] Successfully saved course recommendations for user 2 to C:\Users\mdfar\OneDrive\Desktop\withfeedback\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_2.json
+[2025-02-13T13:30:49.9709859] Completed recommendation fetch process for user 2
+[2025-02-13T13:36:07.4242139] Starting course recommendation fetch for user 2
+[2025-02-13T13:36:07.426491] Existing recommendations file found for user 2. Skipping fetch.
+[2025-02-13T13:36:07.4276681] Completed recommendation fetch process for user 2
+[2025-02-13T13:53:34.1537433] Starting course recommendation fetch for user 3
+[2025-02-13T13:53:34.1562672] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/3
+[2025-02-13T13:53:48.2993181] Fetched 3 course recommendations for user 3. Course IDs: [62, 63, 64]
+[2025-02-13T13:53:48.3018329] Successfully saved course recommendations for user 3 to C:\Users\mdfar\OneDrive\Desktop\withfeedback\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_3.json
+[2025-02-13T13:53:48.3018329] Completed recommendation fetch process for user 3
+[2025-02-13T13:54:37.9400593] Starting course recommendation fetch for user 3
+[2025-02-13T13:54:37.9424697] Existing recommendations file found for user 3. Skipping fetch.
+[2025-02-13T13:54:37.9434881] Completed recommendation fetch process for user 3
+[2025-02-13T13:58:05.9162417] Starting course recommendation fetch for user 3
+[2025-02-13T13:58:05.9205871] Existing recommendations file found for user 3. Skipping fetch.
+[2025-02-13T13:58:05.9225832] Completed recommendation fetch process for user 3
+[2025-02-13T13:58:56.4565078] Starting course recommendation fetch for user 3
+[2025-02-13T13:58:56.4590461] Existing recommendations file found for user 3. Skipping fetch.
+[2025-02-13T13:58:56.4615724] Completed recommendation fetch process for user 3
+[2025-02-13T13:59:08.4846637] Starting course recommendation fetch for user 3
+[2025-02-13T13:59:08.4871967] Existing recommendations file found for user 3. Skipping fetch.
+[2025-02-13T13:59:08.4881943] Completed recommendation fetch process for user 3
+[2025-04-08T19:17:23.9859053] Starting course recommendation fetch for user 2
+[2025-04-08T19:17:23.9919051] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-04-08T19:17:24.0419014] Error fetching or saving course recommendations for user 2: I/O error on GET request for "http://localhost:8000/suggest_courses/2": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-04-08T19:17:24.0568961] Completed recommendation fetch process for user 2
+[2025-04-09T11:23:06.3177908] Starting course recommendation fetch for user 2
+[2025-04-09T11:23:06.3267866] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-04-09T11:23:19.7035589] Starting course recommendation fetch for user 2
+[2025-04-09T11:23:19.7046006] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/2
+[2025-04-09T11:23:23.452489] Fetched 4 course recommendations for user 2. Course IDs: [44, 45, 46, 47]
+[2025-04-09T11:23:23.4634903] Successfully saved course recommendations for user 2 to C:\Users\Farhan Mohammad\Desktop\my project directory\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_2.json
+[2025-04-09T11:23:23.4655053] Completed recommendation fetch process for user 2
+[2025-04-09T11:23:29.6190907] Fetched 3 course recommendations for user 2. Course IDs: [48, 49, 50]
+[2025-04-09T11:23:29.6230942] Successfully saved course recommendations for user 2 to C:\Users\Farhan Mohammad\Desktop\my project directory\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_2.json
+[2025-04-09T11:23:29.6240688] Completed recommendation fetch process for user 2
+[2025-04-09T11:23:29.6490689] Starting course recommendation fetch for user 2
+[2025-04-09T11:23:29.6500683] Existing recommendations file found for user 2. Skipping fetch.
+[2025-04-09T11:23:29.6500683] Completed recommendation fetch process for user 2
+[2025-04-09T11:28:12.8386096] Starting course recommendation fetch for user 1
+[2025-04-09T11:28:12.8446134] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-09T11:28:23.6886172] Fetched 4 course recommendations for user 1. Course IDs: [51, 52, 53, 54]
+[2025-04-09T11:28:23.6936182] Successfully saved course recommendations for user 1 to C:\Users\Farhan Mohammad\Desktop\my project directory\registration-login-spring-boot-security-thymeleaf\src\main\resources\static\data\data\suggest_courses_1.json
+[2025-04-09T11:28:23.6956139] Completed recommendation fetch process for user 1
+[2025-04-09T11:29:29.2758459] Starting course recommendation fetch for user 1
+[2025-04-09T11:29:29.2778548] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T11:29:29.2788447] Completed recommendation fetch process for user 1
+[2025-04-09T11:29:38.2337953] Starting course recommendation fetch for user 1
+[2025-04-09T11:29:38.2347882] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T11:29:38.2347882] Completed recommendation fetch process for user 1
+[2025-04-09T11:29:38.2487876] Starting course recommendation fetch for user 1
+[2025-04-09T11:29:38.2497952] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T11:29:38.2497952] Completed recommendation fetch process for user 1
+[2025-04-09T11:31:00.1735725] Starting course recommendation fetch for user 1
+[2025-04-09T11:31:00.1765742] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T11:31:00.1775751] Completed recommendation fetch process for user 1
+[2025-04-09T12:29:59.5885065] Starting course recommendation fetch for user 1
+[2025-04-09T12:29:59.5904974] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T12:29:59.5904974] Completed recommendation fetch process for user 1
+[2025-04-09T12:29:59.6366299] Starting course recommendation fetch for user 1
+[2025-04-09T12:29:59.6366299] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T12:29:59.6381506] Completed recommendation fetch process for user 1
+[2025-04-09T12:31:31.2885085] Starting course recommendation fetch for user 1
+[2025-04-09T12:31:31.2904979] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-09T12:31:31.2904979] Completed recommendation fetch process for user 1
+[2025-04-14T10:15:32.662532462] Starting course recommendation fetch for user 1
+[2025-04-14T10:15:32.664009261] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-14T10:15:41.917043448] Fetched 3 course recommendations for user 1. Course IDs: [55, 56, 57]
+[2025-04-14T10:15:41.91973565] Successfully saved course recommendations for user 1 to /home/farhan/Documents/workspace-spring-tool-suite-4-4.29.1.RELEASE/aiplp-spring/src/main/resources/static/data/data/suggest_courses_1.json
+[2025-04-14T10:15:41.920068591] Completed recommendation fetch process for user 1
+[2025-04-18T21:30:39.911469501] Starting course recommendation fetch for user 1
+[2025-04-18T21:30:39.912950032] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-18T21:30:46.754494374] Fetched 3 course recommendations for user 1. Course IDs: [58, 59, 60]
+[2025-04-18T21:30:46.756214587] Successfully saved course recommendations for user 1 to /home/farhan/Documents/workspace-spring-tool-suite-4-4.29.1.RELEASE/aiplp-spring/src/main/resources/static/data/data/suggest_courses_1.json
+[2025-04-18T21:30:46.756602335] Completed recommendation fetch process for user 1
+[2025-04-18T21:35:37.257268182] Starting course recommendation fetch for user 1
+[2025-04-18T21:35:37.265724935] Existing recommendations file found for user 1. Skipping fetch.
+[2025-04-18T21:35:37.265972515] Completed recommendation fetch process for user 1
+[2025-04-19T18:45:39.710101816] Starting course recommendation fetch for user 1
+[2025-04-19T18:45:39.711581198] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-19T18:45:39.733379162] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused; nested exception is java.net.ConnectException: Connection refused
+[2025-04-19T18:45:39.737790372] Completed recommendation fetch process for user 1
+[2025-04-19T18:45:39.75542471] Starting course recommendation fetch for user 1
+[2025-04-19T18:45:39.755626167] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-19T18:45:39.756411671] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused; nested exception is java.net.ConnectException: Connection refused
+[2025-04-19T18:45:39.758064122] Completed recommendation fetch process for user 1
+[2025-04-19T18:47:03.352125882] Starting course recommendation fetch for user 1
+[2025-04-19T18:47:03.352262871] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-19T18:47:03.353215026] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused; nested exception is java.net.ConnectException: Connection refused
+[2025-04-19T18:47:03.354396036] Completed recommendation fetch process for user 1
+[2025-04-19T18:47:03.363766498] Starting course recommendation fetch for user 1
+[2025-04-19T18:47:03.363941623] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-19T18:47:03.364790544] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused; nested exception is java.net.ConnectException: Connection refused
+[2025-04-19T18:47:03.365910172] Completed recommendation fetch process for user 1
+[2025-04-19T18:47:59.823799354] Starting course recommendation fetch for user 1
+[2025-04-19T18:47:59.824075665] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-04-19T18:48:06.084835293] Fetched 3 course recommendations for user 1. Course IDs: [77, 78, 79]
+[2025-04-19T18:48:06.088614654] Successfully saved course recommendations for user 1 to /home/farhan/Documents/workspace-spring-tool-suite-4-4.29.1.RELEASE/aiplp-spring/src/main/resources/static/data/data/suggest_courses_1.json
+[2025-04-19T18:48:06.08915723] Completed recommendation fetch process for user 1
+[2025-10-25T21:37:23.8807747] Starting course recommendation fetch for user 1
+[2025-10-25T21:37:24.1402225] Attempting to fetch recommendations from http://localhost:8000/suggest_courses/1
+[2025-10-25T21:37:24.7844752] Error fetching or saving course recommendations for user 1: I/O error on GET request for "http://localhost:8000/suggest_courses/1": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[2025-10-25T21:37:24.8852295] Completed recommendation fetch process for user 1
