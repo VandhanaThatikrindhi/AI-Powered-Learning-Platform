@@ -1,4 +1,5 @@
 -- Drop the existing certificates table
+USE aiplp;
 DROP TABLE IF EXISTS certificates;
 
 -- Recreate the certificates table with LONGBLOB
