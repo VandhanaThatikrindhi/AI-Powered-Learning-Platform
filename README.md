@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🚀 AI-Powered Learning Platform</h1>
+  <h1>AI-Powered Learning Platform</h1>
   <p><strong>A Next-Generation Educational Ecosystem leveraging Spring Boot and Python ML</strong></p>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,23 +11,23 @@
 
 <hr />
 
-## 📖 Overview
+## Overview
 
 The **AI-Powered Learning Platform (AIPLP)** is a sophisticated, full-stack educational system designed to provide hyper-personalized learning experiences. By combining a robust **Spring Boot** backend for user and content management with an advanced **Python AI Microservice** (featuring FAISS and LLM integrations), the platform dynamically generates, evaluates, and adapts learning paths based on real-time user performance.
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- **🧠 Adaptive Learning Paths**: Dynamically generated curriculum utilizing AI-based assessment of user strengths and weaknesses.
-- **⚡ Advanced Assessment Engine**: Automated quiz evaluation and learning path verification powered by ML models.
-- **🔍 Semantic Search (FAISS)**: Blazing-fast retrieval of relevant learning materials and vector embeddings for contextual learning.
-- **📊 Comprehensive Analytics**: Built-in tracking of quiz results, user surveys, and learning progress.
-- **🏆 Certification Schema**: Automated generation and validation of course completion certificates.
+- **Adaptive Learning Paths**: Dynamically generated curriculum utilizing AI-based assessment of user strengths and weaknesses.
+- **Advanced Assessment Engine**: Automated quiz evaluation and learning path verification powered by ML models.
+- **Semantic Search (FAISS)**: Blazing-fast retrieval of relevant learning materials and vector embeddings for contextual learning.
+- **Comprehensive Analytics**: Built-in tracking of quiz results, user surveys, and learning progress.
+- **Certification Schema**: Automated generation and validation of course completion certificates.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The platform operates on a robust microservices architecture:
 
@@ -43,7 +43,7 @@ The platform operates on a robust microservices architecture:
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 ### Backend & Core APIs
 - **Java 17+**
@@ -58,7 +58,7 @@ The platform operates on a robust microservices architecture:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 AI-Powered-Learning-Platform/
@@ -77,7 +77,7 @@ AI-Powered-Learning-Platform/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Spring Boot Core Service
 Navigate to the Spring Boot directory and run the application using the Maven wrapper:
@@ -98,7 +98,7 @@ python learning_assessment_server.py
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License**.
 
